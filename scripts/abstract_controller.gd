@@ -4,7 +4,7 @@ class_name Controller extends Node
 @export var player: Player;
 
 @abstract
-func executeTurn()
+func executeTurn(will_skip: bool)
 
 # Called when the node enters the scene tree for the first time.
 # func _ready() -> void:
