@@ -5,10 +5,10 @@ class_name Property extends Node
 @export var _price: int :  get=get_property_price
 @export var _name: String : get=get_property_name
 
-func _init(name: String, price: int, owner: Player = null):
-	_name = name
-	_price = price
-	_owner = owner
+func _init(nameI: String, priceI: int, ownerI: Player = null):
+	_name = nameI
+	_price = priceI
+	_owner = ownerI
 
 @abstract
 func activate(payer: Player, receiver: Player)

@@ -7,10 +7,10 @@ var BOARD_SIZE: int = Board.SIZE
 @export var _position: int : get=get_position
 @export var _name: String : get=get_player_name
 
-func _init(name: String, money: int, position: int):
-	_money = money
-	_position = position
-	_name = name
+func _init(nameI: String, moneyI: int, positionI: int):
+	_money = moneyI
+	_position = positionI
+	_name = nameI
 
 func gain_or_spend_money( money: int):
 	_money += money
