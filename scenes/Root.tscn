@@ -1,3 +1,36 @@
 [gd_scene format=3 uid="uid://br5blphjvkmqv"]
 
+[ext_resource type="Texture2D" uid="uid://dgchphmysaut2" path="res://sprites/Sprite-teste2.jpg" id="1_1bxvr"]
+[ext_resource type="Script" uid="uid://bpjq1y50xjyyf" path="res://scripts/root.gd" id="1_t5xp5"]
+[ext_resource type="Texture2D" uid="uid://dd3uk3onb1ixp" path="res://sprites/Sprite-personagem-edit.png" id="3_mvcll"]
+
 [node name="Root" type="Node2D" unique_id=1973422960]
+script = ExtResource("1_t5xp5")
+
+[node name="TileTesteSprite1" type="Sprite2D" parent="." unique_id=998303176]
+position = Vector2(150, 65)
+texture = ExtResource("1_1bxvr")
+
+[node name="TileTesteSprite2" type="Sprite2D" parent="." unique_id=1736481129]
+position = Vector2(222, 63)
+texture = ExtResource("1_1bxvr")
+
+[node name="TileTesteSprite3" type="Sprite2D" parent="." unique_id=534180883]
+position = Vector2(186, 64)
+texture = ExtResource("1_1bxvr")
+
+[node name="TileTesteMarker2D1" type="Marker2D" parent="." unique_id=1551446713]
+position = Vector2(149, 61)
+gizmo_extents = 31.5
+
+[node name="TileTesteMarker2D2" type="Marker2D" parent="." unique_id=114949711]
+position = Vector2(185, 61)
+gizmo_extents = 31.5
+
+[node name="TileTesteMarker2D3" type="Marker2D" parent="." unique_id=1554960105]
+position = Vector2(218, 61)
+gizmo_extents = 31.5
+
+[node name="PersonagemSprite" type="Sprite2D" parent="." unique_id=236290592]
+position = Vector2(165, 122)
+texture = ExtResource("3_mvcll")
