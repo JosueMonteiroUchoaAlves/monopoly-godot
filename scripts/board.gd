@@ -2,8 +2,8 @@ class_name Board extends Node
 
 const SIZE = 9
 
-@export var _tiles: Array[Tile]
-@export var _players: Array[Controller]
+var _tiles: Array[Tile]
+var _players: Array[Controller]
 
 func _init(tiles: Array[Tile], players: Array[Controller]):
 	_tiles = tiles

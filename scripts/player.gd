@@ -2,7 +2,6 @@ class_name Player extends Node
 
 var BOARD_SIZE: int = Board.SIZE
 
-
 @export var _money: int :  get=get_money
 @export var _position: int : get=get_position
 @export var _name: String : get=get_player_name

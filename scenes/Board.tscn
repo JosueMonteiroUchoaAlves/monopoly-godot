@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dl1cqpu3o42dl"]
+
+[ext_resource type="Script" uid="uid://dq670trux5hkl" path="res://scenes/BoardNode.gd" id="1_66b1s"]
+[ext_resource type="PackedScene" uid="uid://b2isg06fnmy2a" path="res://scenes/tile.tscn" id="2_w6jgk"]
+[ext_resource type="PackedScene" uid="uid://bhaxklaynv8re" path="res://scenes/player.tscn" id="3_xdl3i"]
+
+[node name="Board" type="Node2D" unique_id=1499039582]
+script = ExtResource("1_66b1s")
+
+[node name="Tile3" parent="." unique_id=1152571067 instance=ExtResource("2_w6jgk")]
+position = Vector2(209, 62)
+
+[node name="Tile2" parent="." unique_id=1919379070 instance=ExtResource("2_w6jgk")]
+position = Vector2(178, 62)
+
+[node name="Tile1" parent="." unique_id=2050578409 instance=ExtResource("2_w6jgk")]
+position = Vector2(147, 62)
+
+[node name="Player" parent="." unique_id=1879539904 instance=ExtResource("3_xdl3i")]
+position = Vector2(60, 106)
+
+[node name="Enemy" parent="." unique_id=2042366148 instance=ExtResource("3_xdl3i")]
+position = Vector2(90, 106)
+is_enemy = true

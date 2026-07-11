@@ -1,17 +1,18 @@
 @abstract
-class_name Property extends Node
+class_name Property extends Resource
 
-@export var _owner: Player : get=get_property_owner, set=set_property_owner
-@export var _price: int :  get=get_property_price
-@export var _name: String : get=get_property_name
+var _owner: Player : get=get_property_owner, set=set_property_owner
+var _price: int :  get=get_property_price
+var _name: String : get=get_property_name
 
 func _init(name: String, price: int, owner: Player = null):
 	_name = name
 	_price = price
 	_owner = owner
 
+# antiga funcao "activate"
 @abstract
-func activate(payer: Player, receiver: Player)
+func charge_rent(payer: Player, receiver: Player)
 
 func get_property_name():
 	return _name
