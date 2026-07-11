@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyfg3de7032x8"
-path="res://.godot/imported/Sprite-Tile.png-2a28b95be02c07a75b8053e2df373404.ctex"
+uid="uid://bcvq1qckxjntu"
+path="res://.godot/imported/sprite-personagem-white.png-b3fa67d7eb6c1a557aecdc6d15468001.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Sprite-Tile.png"
-dest_files=["res://.godot/imported/Sprite-Tile.png-2a28b95be02c07a75b8053e2df373404.ctex"]
+source_file="res://sprites/sprite-personagem-white.png"
+dest_files=["res://.godot/imported/sprite-personagem-white.png-b3fa67d7eb6c1a557aecdc6d15468001.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3kkasxvmlqoy"
-path="res://.godot/imported/Sprite-personagem-red.png-421ed02efa8c79f84c2da2077279c696.ctex"
+uid="uid://euj8p1f44hso"
+path="res://.godot/imported/sprite-tile.png-e35c292418138a29e6246a9384f79ecb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Sprite-personagem-red.png"
-dest_files=["res://.godot/imported/Sprite-personagem-red.png-421ed02efa8c79f84c2da2077279c696.ctex"]
+source_file="res://sprites/sprite-tile.png"
+dest_files=["res://.godot/imported/sprite-tile.png-e35c292418138a29e6246a9384f79ecb.ctex"]
 
 [params]
 

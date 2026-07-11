@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b355tsnbnifi3"
-path="res://.godot/imported/Sprite-personagem-white.png-d54af28cb24e3e65b2bfee909b10f058.ctex"
+uid="uid://bul7ac86ngcg7"
+path="res://.godot/imported/sprite-personagem-blue.png-a1c513d0240f298530ae06f5fa8bbcc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Sprite-personagem-white.png"
-dest_files=["res://.godot/imported/Sprite-personagem-white.png-d54af28cb24e3e65b2bfee909b10f058.ctex"]
+source_file="res://sprites/sprite-personagem-blue.png"
+dest_files=["res://.godot/imported/sprite-personagem-blue.png-a1c513d0240f298530ae06f5fa8bbcc6.ctex"]
 
 [params]
 
