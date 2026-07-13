@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2isg06fnmy2a"]
 
-[ext_resource type="Script" uid="uid://dcii3ok085qfp" path="res://scenes/TileNode.gd" id="1_ywnoi"]
+[ext_resource type="Script" uid="uid://dfw7kfkgkmfy3" path="res://scenes/Tile.gd" id="1_ywnoi"]
 [ext_resource type="Texture2D" uid="uid://euj8p1f44hso" path="res://sprites/sprite-tile.png" id="2_ywnoi"]
 
 [node name="Tile" type="Node2D" unique_id=1152571067]
