@@ -1,6 +1,5 @@
 @abstract
-class_name Tile extends RefCounted
-# RefCounted eh basicamente um objeto cru, soh que ele se administra melhor sozinho do que um Object
+class_name Tile extends Resource
 
 @export var _property: Property
 

@@ -1,4 +1,4 @@
-class_name HousingPropertie extends Property
+class_name HousingProperty extends Property
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
