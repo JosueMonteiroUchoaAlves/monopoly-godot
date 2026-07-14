@@ -5,6 +5,8 @@ class_name Tile extends Resource
 
 func _init(property: Property = null):
 	_property = property
-
+	
+# Faz sentido que ele receba um Controller porque ele tem acesso tanto
+# ao pagamento do player quanto ao metodo que pede pro player escolher
 @abstract
-func land_on(player: Player)
+func land_on(player: Controller)

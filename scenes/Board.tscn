@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dl1cqpu3o42dl"]
 
-[ext_resource type="Script" uid="uid://cy2qs3cy8pfvv" path="res://scenes/Board.gd" id="1_66b1s"]
+[ext_resource type="Script" uid="uid://cy2qs3cy8pfvv" path="res://scenes/scripts/Board.gd" id="1_66b1s"]
 [ext_resource type="PackedScene" uid="uid://b2isg06fnmy2a" path="res://scenes/Tile.tscn" id="2_w6jgk"]
 [ext_resource type="PackedScene" uid="uid://bhaxklaynv8re" path="res://scenes/Player.tscn" id="3_xdl3i"]
 
@@ -9,16 +9,16 @@ script = ExtResource("1_66b1s")
 
 [node name="Player" parent="." unique_id=1879539904 instance=ExtResource("3_xdl3i")]
 z_index = 1
-position = Vector2(48, 12)
+position = Vector2(74, 32)
 
 [node name="Enemy1" parent="." unique_id=2042366148 instance=ExtResource("3_xdl3i")]
 z_index = 1
-position = Vector2(46, 50)
+position = Vector2(63, 60)
 is_enemy = true
 
 [node name="Enemy2" parent="." unique_id=1165085393 instance=ExtResource("3_xdl3i")]
 z_index = 1
-position = Vector2(47, 25)
+position = Vector2(82, 58)
 is_enemy = true
 
 [node name="Tile1" parent="." unique_id=2050578409 instance=ExtResource("2_w6jgk")]

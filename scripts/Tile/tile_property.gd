@@ -1,24 +1,20 @@
-class_name HousingTile extends Tile
+class_name PropertyTile extends Tile
 	
-
-func _init(property: Property = null):
+# sempre vai ter uma property, entao nunca vai ser null
+func _init(property: Property):
 	super(property)
 
 # antiga funcao activate
-func land_on(player: Player):
-	var owner = _property.get_owner()
+func land_on(player_controller: Controller):
+	var owner = _property.get_property_owner()
 
 	if owner:
-		_property.charge_rent(player, owner)
+		print("Vish... a(o) %s tinha um dono!"%_property.get_property_name())
+		_property.charge_rent(player_controller)
+		print("Agora %s tem apenas %d reais!"%[player_controller.player.get_player_name(), player_controller.player.get_money()])
+		# por enaquanto
+		player_controller.skip_turn("nao ter mais o que fazer")
 	else:
-		var prompt := "Você quer comprar {_property.get_name()} por {_property.get_price()}"
-		var options := ["Sim", "Não"]
-		print("Voce pousou na {_property.get_name()} mas nao tinha comprador")
-		""" var d = Decision(prompt, options).promptDecision()
-		if d == 0:
-			_property.set_owner(player)
-			player.gain_or_spend_money(_property.get_price() * -1)
-			print("Você escolheu comprar {_property.get_name()}")
-		else:
-			print("Você escolheu não comprar")
-		"""
+		print("Voce pousou na %s, mas ela nao tinha um dono..."%_property.get_property_name())
+		#TODO: ver se ele quer comprar ela e tals	
+		player_controller.execute_turn(_property)
