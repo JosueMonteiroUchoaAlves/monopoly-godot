@@ -1,5 +1,14 @@
 class_name Board extends Node
 
-const SIZE = 9
+const SIZE = 12
 
-# TODO: vou colocar o resto da classe Board aqui tambem
+var _tiles: Array[Tile]
+var _players: Array[Controller]
+
+func _init(tiles: Array[Tile], players: Array[Controller]):
+	_tiles = tiles
+	_players = players
+	
+func execute_turn():
+	pass
+	

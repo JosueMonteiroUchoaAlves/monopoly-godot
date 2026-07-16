@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bhaxklaynv8re"]
+
+[ext_resource type="Texture2D" uid="uid://bul7ac86ngcg7" path="res://sprites/sprite-personagem-blue.png" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://dprdo6qbr0l3d" path="res://scenes/Player.gd" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dw3gjehh375v4" path="res://sprites/sprite-personagem-red.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bcvq1qckxjntu" path="res://sprites/sprite-personagem-white.png" id="4_dqkch"]
+
+[node name="Player" type="Node2D" unique_id=1879539904]
+script = ExtResource("2_g2els")
+sprite_player = ExtResource("2_dqkch")
+sprite_enemy = ExtResource("3_qlg0r")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=112671298]
+texture = ExtResource("4_dqkch")

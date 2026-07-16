@@ -1,25 +1,35 @@
 class_name MainController extends Controller
 
-@export var titles: Array[Title] = []
-@export var properties: Array[Property] = []
-@export var Tiles: Array[Tile] = []
-@export var skips: int = 3
-@export var plays: int = 4
+var _UIcontrol: Control
+var titles: Array[Title] = []
+var properties: Array[Property] = []
+var skips: int = 3
+var plays: int = 4
+var Tiles: Array[Tile] = []
 
 signal end_skips
 signal end_plays
 
+func _init(player_t: Player, view_t: PlayerNode, UIcontrol:Control):
+	super(player_t, view_t)
+	_UIcontrol = UIcontrol
+
 var rng = RandomNumberGenerator.new()
 
-func executeTurn(will_skip: bool):
-	if not will_skip:
-		var value = rng.randi_range(0, 5)
-		player.move(value)
-		
-		plays -= 1
-		if plays == 0:
-			end_plays.emit()
+func execute_turn(_property: Property):
+	print("%s esta pensando..."%player._name)
+	
+	var choice: String = await _UIcontrol.player_choose
+	if choice == "buy":
+		print("%s resolveu comprar a propriedade"%player._name)
+		_property.buy_property(player)
+		print("agora ele tem %d no bolso"%player.get_money())
 	else:
-		skips -= 1
-		if skips == 0:
-			end_skips.emit()
+		if choice == "pass":
+			print("Bro was too afraid to gamble")
+			print("%s nao quis a propriedade"%player._name)
+		else:
+			# Hacker choice?
+			print("Tf is this guy doing??")
+	await Engine.get_main_loop().create_timer(1.0).timeout
+	turn_finished.emit()
