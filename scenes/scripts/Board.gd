@@ -32,10 +32,13 @@ func get_players() -> Array[PlayerNode]:
 			tiles.append(child)
 	return tiles
 
-func activate_on_step(tile_position: int, player: Controller):
-	if _tiles[tile_position].logic_core._property != null: # Eh uma propriedade
-		var propertyTile = (_tiles[tile_position].logic_core as PropertyTile)
-		propertyTile.land_on(player)
-	else:
-		# nao sendo uma propriedade... por enquanto nao faz nada 
-		pass
+func execute_turn(tile_position: int, player: Controller):
+	# Qualquer tile vai ter um logic_core que recebe um controller
+	# nao lembro porque mantive aquela condicional... lmfao
+	_tiles[tile_position].logic_core.land_on(player) # Controller do player
+
+func expropriation_of_assets(bankruptPlayer: Player):
+	for tile in _tiles:
+		if tile.logic_core is PropertyTile:
+			if tile.logic_core._property.get_property_owner() == bankruptPlayer:
+				tile.logic_core._property._owner = null

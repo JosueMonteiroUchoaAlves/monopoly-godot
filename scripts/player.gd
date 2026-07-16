@@ -12,7 +12,7 @@ func _init(name_t: String, money: int, position_t: int):
 	_position = position_t
 	_name = name_t
 
-func gain_or_spend_money( money: int):
+func gain_or_spend_money(money: int):
 	_money += money
 
 func move(new_position: int):
