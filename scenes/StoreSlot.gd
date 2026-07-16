@@ -1,7 +1,7 @@
 class_name StoreSlot extends Control
 
-@export var mainItem: ItemData
-@export var subItem: ItemData
+var mainItem: ItemData
+var subItem: ItemData
 @export var card: TextureRect
 @export var inventory: Inventory
 var hovering: bool

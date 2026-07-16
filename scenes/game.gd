@@ -1,4 +1,4 @@
-extends Node
+class_name Game extends Node
 var main_scene: Node
 var overlay_scene: Node
 

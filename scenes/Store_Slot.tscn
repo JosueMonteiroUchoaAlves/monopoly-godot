@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cr0ig66ujvr3k"]
 
-[ext_resource type="Script" uid="uid://bujbyxycjni2c" path="res://scenes/store_slot.gd" id="1_udb28"]
+[ext_resource type="Script" uid="uid://bujbyxycjni2c" path="res://scenes/StoreSlot.gd" id="1_udb28"]
 [ext_resource type="Texture2D" uid="uid://bctstwxw88723" path="res://sprites/Store_Slot_Prototype.png" id="2_cvb2o"]
 [ext_resource type="Texture2D" uid="uid://bnhcuowji3m5i" path="res://sprites/Store_Slot_Strip_Prototype.png" id="3_dlkee"]
 

@@ -1,37 +1,60 @@
 [gd_scene format=3 uid="uid://c0j4hr64jk8yx"]
 
-[ext_resource type="Script" uid="uid://bujbyxycjni2c" path="res://scenes/store_slot.gd" id="1_lw67d"]
-[ext_resource type="Texture2D" uid="uid://bctstwxw88723" path="res://sprites/Store_Slot_Prototype.png" id="2_xdmv4"]
-[ext_resource type="Texture2D" uid="uid://bnhcuowji3m5i" path="res://sprites/Store_Slot_Strip_Prototype.png" id="3_gii7t"]
+[ext_resource type="Script" uid="uid://ccngool1ouie8" path="res://scenes/Store.gd" id="1_ayu48"]
+[ext_resource type="Resource" uid="uid://b33783hqq6n11" path="res://resources/inventory.tres" id="2_xlrfv"]
+[ext_resource type="Resource" uid="uid://7xup88o44ktc" path="res://resources/universe.tres" id="3_126te"]
+[ext_resource type="PackedScene" uid="uid://cr0ig66ujvr3k" path="res://scenes/Store_Slot.tscn" id="4_6hsdf"]
+[ext_resource type="Texture2D" uid="uid://wtxuhyycbppv" path="res://sprites/Store_Container_Prototype.png" id="5_hq1qq"]
+[ext_resource type="Texture2D" uid="uid://dgvlhfprwpv23" path="res://sprites/Store_Prototype.png" id="6_gsfny"]
+[ext_resource type="Texture2D" uid="uid://byvqy1gq2n6m8" path="res://sprites/Store_Dialogue.png" id="7_wx5b0"]
+[ext_resource type="Texture2D" uid="uid://roa1w78sw6ji" path="res://sprites/Store_Proceed_Prototype.png" id="8_y1n3w"]
 
-[node name="StoreSlot" type="Control" unique_id=2085222366 node_paths=PackedStringArray("card")]
-custom_minimum_size = Vector2(120, 160)
+[node name="Store" type="Control" unique_id=1302413312 node_paths=PackedStringArray("container")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 120.0
-offset_bottom = 160.0
-script = ExtResource("1_lw67d")
-card = NodePath("BaseCard/ItemCard")
-metadata/_custom_type_script = "uid://bujbyxycjni2c"
-
-[node name="BaseCard" type="TextureRect" parent="." unique_id=383304078]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_xdmv4")
+script = ExtResource("1_ayu48")
+inventory = ExtResource("2_xlrfv")
+universe = ExtResource("3_126te")
+store_slot = ExtResource("4_6hsdf")
+container = NodePath("HBoxContainer")
 
-[node name="ItemCard" type="TextureRect" parent="BaseCard" unique_id=1795428502]
-custom_maximum_size = Vector2(120, 160)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=343051470]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 114.0
-offset_bottom = 155.0
+offset_left = 74.0
+offset_top = 55.0
+offset_right = 487.0
+offset_bottom = 258.0
+texture = ExtResource("5_hq1qq")
 
-[node name="Strip" type="TextureRect" parent="BaseCard/ItemCard" unique_id=1017136517]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1965449008]
 layout_mode = 0
-offset_left = -5.0
-offset_top = 54.0
-offset_right = 115.0
-offset_bottom = 94.0
-texture = ExtResource("3_gii7t")
+offset_left = 712.0
+offset_top = 52.0
+offset_right = 1082.0
+offset_bottom = 311.0
+texture = ExtResource("6_gsfny")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=8582353]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 309.0
+offset_right = 1072.0
+offset_bottom = 589.0
+texture = ExtResource("7_wx5b0")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=140094425]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 405.0
+offset_right = 524.0
+offset_bottom = 556.0
+texture_normal = ExtResource("8_y1n3w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1338043073]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 88.0
+offset_right = 523.0
+offset_bottom = 298.0

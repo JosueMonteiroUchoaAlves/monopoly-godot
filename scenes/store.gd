@@ -1,4 +1,4 @@
-extends Control
+class_name Store extends Control
 
 @export var STORE_SLOTS = 2
 @export var inventory: Inventory
