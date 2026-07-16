@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GenericTitle" format=3 uid="uid://d1ij0iywsir8h"]
+
+[ext_resource type="Texture2D" uid="uid://dvmopxnqaauiy" path="res://resources/titles/generic_title/Generic_Title_Sprite.png" id="1_vampy"]
+[ext_resource type="Script" uid="uid://cbosdijq0uin4" path="res://resources/titles/generic_title/generic_title.gd" id="2_qd5qf"]
+
+[resource]
+script = ExtResource("2_qd5qf")
+_store_price = 1
+_card_texture = ExtResource("1_vampy")
+metadata/_custom_type_script = "uid://cbosdijq0uin4"

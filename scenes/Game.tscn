@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ba6p5p811v26r"]
+
+[ext_resource type="Script" uid="uid://bujbyxycjni2c" path="res://scenes/store_slot.gd" id="1_cpr0p"]
+[ext_resource type="Texture2D" uid="uid://bctstwxw88723" path="res://sprites/Store_Slot_Prototype.png" id="2_78awf"]
+[ext_resource type="Texture2D" uid="uid://bnhcuowji3m5i" path="res://sprites/Store_Slot_Strip_Prototype.png" id="3_s0nni"]
+
+[node name="StoreSlot" type="Control" unique_id=2085222366 node_paths=PackedStringArray("card")]
+custom_minimum_size = Vector2(120, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 160.0
+script = ExtResource("1_cpr0p")
+card = NodePath("BaseCard/ItemCard")
+metadata/_custom_type_script = "uid://bujbyxycjni2c"
+
+[node name="BaseCard" type="TextureRect" parent="." unique_id=383304078]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_78awf")
+
+[node name="ItemCard" type="TextureRect" parent="BaseCard" unique_id=1795428502]
+custom_maximum_size = Vector2(120, 160)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 114.0
+offset_bottom = 155.0
+
+[node name="Strip" type="TextureRect" parent="BaseCard/ItemCard" unique_id=1017136517]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 54.0
+offset_right = 115.0
+offset_bottom = 94.0
+texture = ExtResource("3_s0nni")

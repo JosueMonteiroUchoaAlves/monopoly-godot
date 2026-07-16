@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HousingProperty" format=3 uid="uid://b8p5h2dfad0f2"]
+
+[ext_resource type="Texture2D" uid="uid://ba78v5gniwwpu" path="res://resources/properties/housing_property/Housing_Property_Sprite.png" id="1_k3sqh"]
+[ext_resource type="Script" uid="uid://bwphb7ip33iym" path="res://resources/properties/housing_property/housing_property.gd" id="2_ws5ui"]
+
+[resource]
+script = ExtResource("2_ws5ui")
+rent = null
+_price = null
+_name = null
+_description = null
+_store_price = 2
+_card_texture = ExtResource("1_k3sqh")
+_needs_sub = null
+metadata/_custom_type_script = "uid://bwphb7ip33iym"

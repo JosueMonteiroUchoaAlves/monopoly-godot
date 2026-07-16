@@ -6,6 +6,7 @@ var BOARD_SIZE: int = Board.SIZE
 @export var _position: int : get=get_player_position, set=set_player_position
 @export var _name: String : get=get_player_name
 var n_actions: int
+@export var id: String
 
 func _init(name_t: String, money: int, position_t: int):
 	_money = money

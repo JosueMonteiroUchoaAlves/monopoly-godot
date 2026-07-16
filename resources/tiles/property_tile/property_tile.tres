@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PropertyTile" format=3 uid="uid://bmbenrxec3i7b"]
+
+[ext_resource type="Texture2D" uid="uid://clmssghoroysc" path="res://resources/tiles/property_tile/Property_Tile_Sprite.png" id="1_v17sp"]
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="2_477st"]
+
+[resource]
+script = ExtResource("2_477st")
+_name = null
+_description = null
+_store_price = 3
+_card_texture = ExtResource("1_v17sp")
+_needs_sub = null
+metadata/_custom_type_script = "uid://jq4hme3iukbe"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Universe" format=3 uid="uid://7xup88o44ktc"]
+
+[ext_resource type="Script" uid="uid://cnii0j8eoexxr" path="res://scripts/abstracts/resources/property_data.gd" id="1_p2og5"]
+[ext_resource type="Resource" uid="uid://b8p5h2dfad0f2" path="res://resources/properties/housing_property/housing_property.tres" id="2_rl2s7"]
+[ext_resource type="Script" uid="uid://db8sdaisyvwxa" path="res://scripts/abstracts/resources/tile_data.gd" id="3_4f6vl"]
+[ext_resource type="Script" uid="uid://dyp7jyta2w30h" path="res://scripts/universe.gd" id="3_rb12x"]
+[ext_resource type="Script" uid="uid://b86g2aj146yyw" path="res://scripts/abstracts/resources/title_data.gd" id="4_rl2s7"]
+[ext_resource type="Resource" uid="uid://bmbenrxec3i7b" path="res://resources/tiles/property_tile/property_tile.tres" id="5_0weib"]
+[ext_resource type="Resource" uid="uid://d1ij0iywsir8h" path="res://resources/titles/generic_title/generic_title.tres" id="7_cboxx"]
+
+[resource]
+script = ExtResource("3_rb12x")
+tiles = Array[ExtResource("3_4f6vl")]([ExtResource("5_0weib")])
+titles = Array[ExtResource("4_rl2s7")]([ExtResource("7_cboxx")])
+properties = Array[ExtResource("1_p2og5")]([ExtResource("2_rl2s7")])
+metadata/_custom_type_script = "uid://dyp7jyta2w30h"
