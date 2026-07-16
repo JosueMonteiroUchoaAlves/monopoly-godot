@@ -1,13 +1,14 @@
 class_name StoreSlot extends Control
 
-var mainItem: ItemData
-var subItem: ItemData
+@export var mainItem: ItemData
+@export var subItem: ItemData
 @export var card: TextureRect
 @export var inventory: Inventory
 var hovering: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(mainItem)
 	card.texture = mainItem._card_texture
 
 func is_mouse_over_card() -> bool:

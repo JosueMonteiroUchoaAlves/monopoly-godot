@@ -1,4 +1,4 @@
-class_name HousingProperty extends PropertyData
+class_name HousingPropertyData extends PropertyData
 
 @export var rent: int = 25
 

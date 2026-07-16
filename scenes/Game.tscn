@@ -1,16 +1,9 @@
 [gd_scene format=3 uid="uid://ba6p5p811v26r"]
 
-[ext_resource type="Script" uid="uid://cmfdd2hpardxx" path="res://scenes/Game.gd" id="1_ibkli"]
-[ext_resource type="Script" uid="uid://bw7rmucte8wtw" path="res://scenes/Store.gd" id="2_qbsmt"]
+[ext_resource type="Script" uid="uid://c2v0b6wfp52op" path="res://scenes/scripts/Game.gd" id="1_ibkli"]
+[ext_resource type="PackedScene" uid="uid://c0j4hr64jk8yx" path="res://scenes/Store.tscn" id="2_qbsmt"]
 
 [node name="Game" type="Node" unique_id=1730410151]
 script = ExtResource("1_ibkli")
-metadata/_custom_type_script = "uid://cmfdd2hpardxx"
 
-[node name="Store" type="Control" parent="." unique_id=1171094510]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_qbsmt")
-metadata/_custom_type_script = "uid://bw7rmucte8wtw"
+[node name="Store" parent="." unique_id=1302413312 instance=ExtResource("2_qbsmt")]

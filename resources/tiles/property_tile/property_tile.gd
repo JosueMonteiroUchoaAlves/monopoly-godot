@@ -1,4 +1,4 @@
-class_name PropertyTile extends GenericTileData
+class_name PropertyTileData extends GenericTileData
 
 signal can_be_bought
 

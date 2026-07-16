@@ -1,1 +1,1 @@
-class_name GenericTitle extends TitleData
+class_name GenericTitleData extends TitleData
