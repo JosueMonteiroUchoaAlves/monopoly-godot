@@ -16,7 +16,7 @@ func move_player(new_position: int, coordinates: Vector2) -> void:
 	#-- Logicamente
 	player.move(new_position)
 	#-- Visualmente
-	view.move(coordinates)
+	await view.move(coordinates)
 
 @abstract
 func execute_turn(_property: Property)

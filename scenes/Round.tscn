@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdj5d8vwctys6" path="res://scenes/scripts/Round.gd" id="1_a4rw8"]
 [ext_resource type="PackedScene" uid="uid://boomd2ke57g72" path="res://scenes/Control.tscn" id="1_oqe1w"]
 [ext_resource type="PackedScene" uid="uid://dl1cqpu3o42dl" path="res://scenes/Board.tscn" id="1_tccmb"]
+[ext_resource type="PackedScene" uid="uid://dajjwn4t82yu5" path="res://scenes/RoundLogs.tscn" id="4_h7of1"]
 
 [node name="Round" type="Node2D" unique_id=27026996]
 script = ExtResource("1_a4rw8")
@@ -21,3 +22,14 @@ grow_vertical = 0
 
 [node name="Board" parent="." unique_id=1499039582 instance=ExtResource("1_tccmb")]
 position = Vector2(559, 330)
+
+[node name="RoundLogs" parent="." unique_id=935140126 instance=ExtResource("4_h7of1")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1144.0
+offset_top = 9.0
+offset_right = 1144.0
+offset_bottom = 9.0

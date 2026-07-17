@@ -5,14 +5,13 @@ var _tiles: Array[TileNode]
 var board_core: Board 
 	
 func _ready() -> void:
-	print("Debug Logs - Board")
 	_tiles = get_children_tiles()
 
 func setup(tiles: Array[Tile], players: Array[Controller], user_choice_UI_T: Control) -> void:
 	_user_choice_UI = user_choice_UI_T
 	board_core = Board.new(tiles, players)
 	
-	for i in range(Board.SIZE):
+	for i in range(Board.SIZE-4):
 		# linkar TileNode com seu respectivo tile
 		_tiles[i].logic_core = tiles[i]
 		
@@ -42,3 +41,23 @@ func expropriation_of_assets(bankruptPlayer: Player):
 		if tile.logic_core is PropertyTile:
 			if tile.logic_core._property.get_property_owner() == bankruptPlayer:
 				tile.logic_core._property._owner = null
+
+func get_safe_drop_coordinate(target_tile_index: int) -> Vector2:
+	var base_coordinate: Vector2 = _tiles[target_tile_index].marker.global_position
+	
+	# Conta quantos jogadores já estão nessa casa
+	var occupants: int = 0
+	for controller in board_core._players:
+		if not controller.is_bankrupt and controller.player.get_player_position() == target_tile_index:
+			occupants += 1
+			
+	# Aplica um deslocamento (offset) baseado na ordem de chegada
+	var offset := Vector2.ZERO
+	match occupants:
+		0: offset = Vector2.ZERO # Primeiro a chegar fica no centro
+		1: offset = Vector2(-15, -15) # Segundo chega um pouco pra cima/esquerda
+		2: offset = Vector2(15, 15) # Terceiro pra baixo/direita
+		3: offset = Vector2(-15, 15) # Quarto pro outro lado
+		_: offset = Vector2(randf_range(-20, 20), randf_range(-20, 20)) # Se tiver mais, joga aleatório
+		
+	return base_coordinate + offset

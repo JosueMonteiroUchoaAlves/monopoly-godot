@@ -24,4 +24,5 @@ func move(destination: Vector2):
 		
 	# temos que usar global_position ao inves de apenas position, 
 	# pois ele retornaria a posicao apenas em relacao ao pai direto dele (Que eh Tile, nao root	)
-	tween.tween_property(self,"position", destination, 0.3)
+	tween.tween_property(self,"position", destination, 0.5)
+	await tween.finished

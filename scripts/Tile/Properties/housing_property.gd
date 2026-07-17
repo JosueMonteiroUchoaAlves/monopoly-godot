@@ -10,4 +10,7 @@ func _init(nameT: String, price: int, rent: int, ownerT = null):
 func charge_rent(payer: Controller):
 	payer.player.gain_or_spend_money(_rent * -1)
 	_owner.gain_or_spend_money(_rent)
-	print("%s pagou %d a %s"% [payer.player.get_player_name(),_rent, _owner.get_player_name()])
+	round_log("%s pagou %d a %s"% [payer.player.get_player_name(),_rent, _owner.get_player_name()])
+
+func round_log(text: String):
+	EventBus.round_log.emit(text)

@@ -3,15 +3,13 @@ class_name Property extends Node
 
 var _owner: Player : get=get_property_owner, set=buy_property
 var _name: String : get=get_property_name
-@export var _base_data: PropertyData
+@export var _base_data: PropertyData = PropertyData.new()
 
 func get_property_owner():
 	return _owner
 
 func _init(name: String, price: int, owner: Player = null):
-	# como basedata nao ta inicializado por enquanto vai ficar sem preco
-	# nao posso inicializar pq eh abstrata
-	# _base_data._price = price
+	_base_data._price = price
 	_name = name
 	_owner = owner
 	
