@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ArtsPatronData" format=3 uid="uid://d06wmuchj1j0h"]
+
+[ext_resource type="Script" uid="uid://dykwebt1dq6aq" path="res://resources/titles/arts_patron/arts_patron_data.gd" id="1_mb1xc"]
+
+[resource]
+script = ExtResource("1_mb1xc")
+metadata/_custom_type_script = "uid://dykwebt1dq6aq"

@@ -2,11 +2,10 @@ class_name PropertyTileData extends GenericTileData
 
 signal can_be_bought
 
-# TODO: Refactor this to be wayy better cuz right now it's kinda dumb
-func activate(player: Player, context: TileContext):
-	assert(context is PropertyTileContext, "Context must be of it's type")
+func land_on(event: LandOnContext, turn: TurnContext, data: TileContext):
+	super(event, turn, data)
 	
-	if context.property.player == null:
+	if data.property.player == null:
 		can_be_bought.emit(self)
 	else:
-		context.property.activate(player, context.property.owner)
+		data.property.charge_rent(player, data.property.owner)
