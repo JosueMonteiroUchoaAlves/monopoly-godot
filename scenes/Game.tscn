@@ -1,13 +1,6 @@
 [gd_scene format=3 uid="uid://ba6p5p811v26r"]
 
 [ext_resource type="Script" uid="uid://c2v0b6wfp52op" path="res://scenes/scripts/Game.gd" id="1_ibkli"]
-[ext_resource type="PackedScene" uid="uid://bcr4dgxswyo3n" path="res://scenes/MainMenu.tscn" id="2_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://c0j4hr64jk8yx" path="res://scenes/Store.tscn" id="2_qbsmt"]
 
 [node name="Game" type="Node" unique_id=1730410151]
 script = ExtResource("1_ibkli")
-
-[node name="MainMenu" parent="." unique_id=39836289 instance=ExtResource("2_cpr0p")]
-
-[node name="Store" parent="." unique_id=1302413312 instance=ExtResource("2_qbsmt")]
-visible = false

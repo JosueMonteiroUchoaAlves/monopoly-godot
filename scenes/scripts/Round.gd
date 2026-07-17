@@ -134,6 +134,7 @@ func start_round() -> void:
 				round_log("\nFim de jogo! Todos os bots faliram e você venceu a partida!")
 			else:
 				round_log("\nO %s amassou todo mundo e venceu!" % vencedor.player.get_player_name())
+	EventBus.round_finished.emit()
 	
 func on_player_bankrupt(dead_controller: Controller) -> void:
 	round_log("\n[FALÊNCIA] O jogador %s quebrou e foi de arrasta pra cima!" % dead_controller.player.get_player_name())

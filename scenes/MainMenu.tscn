@@ -77,4 +77,5 @@ grow_vertical = 2
 texture = ExtResource("3_2wh52")
 
 [connection signal="pressed" from="VBoxContainer/ButtonStartGame" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
