@@ -1,16 +1,32 @@
 @abstract
 class_name Controller extends Node
 
-@export var player: Player;
+var player: Player
+var view: PlayerNode
+var is_bankrupt: bool = false
+
+signal turn_finished
+signal bankruptcy(controller: Controller)
+
+func _init(player_t: Player, view_t: PlayerNode) -> void:
+	player = player_t
+	view = view_t
+	
+func move_player(new_position: int, coordinates: Vector2) -> void:
+	#-- Logicamente
+	player.move(new_position)
+	#-- Visualmente
+	await view.move(coordinates)
 
 @abstract
-func executeTurn(will_skip: bool)
+func execute_turn(_property: Property)
 
-# Called when the node enters the scene tree for the first time.
-# func _ready() -> void:
-# 	pass # Replace with function body.
+func file_for_bankruptcy():
+	is_bankrupt = true
+	print("%s faliu"%player.get_player_name())
+	bankruptcy.emit(self)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta: float) -> void:
-# 	pass
+func skip_turn(reason: String) -> void:
+	print("%s teve seu turno eskipado por %s\n"%[player._name, reason])
+	await Engine.get_main_loop().create_timer(1.0).timeout
+	turn_finished.emit(self)

@@ -1,6 +1,6 @@
 class_name Board extends Node
 
-const SIZE = 12
+const SIZE = 20
 
 var _tiles: Array[Tile]
 var _players: Array[Controller]

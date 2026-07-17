@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dajjwn4t82yu5"]
+
+[ext_resource type="Script" uid="uid://l3bggf2rvmf" path="res://scenes/RoundLogs.gd" id="1_vr4dh"]
+
+[node name="RoundLogs" type="Control" unique_id=935140126]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vr4dh")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1321771864]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_bottom = 362.0
+grow_horizontal = 0
+
+[node name="Label" type="RichTextLabel" parent="PanelContainer" unique_id=313080441]
+layout_mode = 2
+scroll_following = true
