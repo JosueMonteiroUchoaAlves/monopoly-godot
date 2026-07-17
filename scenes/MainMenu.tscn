@@ -4,10 +4,14 @@
 [ext_resource type="Script" uid="uid://dcpytdacq7ik4" path="res://scenes/scripts/MainMenu.gd" id="1_ow34m"]
 [ext_resource type="Shader" uid="uid://d3ppg210awvh" path="res://shaders/BackgroundBlur.gdshader" id="2_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://dl6yvkbpv5v8m" path="res://sprites/decoration/capitalism-branco-com-sombra.png" id="3_2wh52"]
+[ext_resource type="FontFile" uid="uid://b0l18oi7rx53v" path="res://sprites/UI/GrapeSoda.ttf" id="4_l72w3"]
+[ext_resource type="Script" uid="uid://c6uag2dm8825l" path="res://scripts/UI/juicy_button.gd" id="5_826wr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wa3y6"]
 shader = ExtResource("2_eiy7p")
 shader_parameter/blur_amount = 2.0
+
+[sub_resource type="Theme" id="Theme_6hsdf"]
 
 [node name="MainMenu" type="Control" unique_id=39836289]
 layout_mode = 3
@@ -46,20 +50,59 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="ButtonStartGame" type="Button" parent="VBoxContainer" unique_id=1248516891]
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=3083820]
+custom_minimum_size = Vector2(230, 60)
 layout_mode = 2
+
+[node name="ButtonStartGame" type="Button" parent="VBoxContainer/Control" unique_id=1248516891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_6hsdf")
+theme_override_fonts/font = ExtResource("4_l72w3")
+theme_override_font_sizes/font_size = 38
 text = "Start Game"
+script = ExtResource("5_826wr")
 
-[node name="ButtonSettings" type="Button" parent="VBoxContainer" unique_id=1176641618]
+[node name="Control2" type="Control" parent="VBoxContainer" unique_id=1465878418]
+custom_minimum_size = Vector2(230, 60)
 layout_mode = 2
+
+[node name="ButtonSettings" type="Button" parent="VBoxContainer/Control2" unique_id=1176641618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_6hsdf")
+theme_override_fonts/font = ExtResource("4_l72w3")
+theme_override_font_sizes/font_size = 38
 text = "Settings"
+script = ExtResource("5_826wr")
 
-[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=1992102591]
+[node name="Control3" type="Control" parent="VBoxContainer" unique_id=1637812874]
+custom_minimum_size = Vector2(230, 60)
 layout_mode = 2
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer/Control3" unique_id=1992102591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_6hsdf")
+theme_override_fonts/font = ExtResource("4_l72w3")
+theme_override_font_sizes/font_size = 38
 text = "Exit"
+script = ExtResource("5_826wr")
 
 [node name="CapitalismLogo" type="TextureRect" parent="." unique_id=1012383396]
 layout_mode = 1
@@ -76,5 +119,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_2wh52")
 
-[connection signal="pressed" from="VBoxContainer/ButtonStartGame" to="." method="_on_button_start_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/ButtonStartGame" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control2/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control3/ButtonExit" to="." method="_on_button_exit_pressed"]

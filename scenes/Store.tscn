@@ -4,10 +4,11 @@
 [ext_resource type="Resource" uid="uid://b33783hqq6n11" path="res://resources/inventory.tres" id="2_xlrfv"]
 [ext_resource type="Resource" uid="uid://7xup88o44ktc" path="res://resources/universe.tres" id="3_126te"]
 [ext_resource type="PackedScene" uid="uid://cr0ig66ujvr3k" path="res://scenes/Store_Slot.tscn" id="4_6hsdf"]
-[ext_resource type="Texture2D" uid="uid://wtxuhyycbppv" path="res://sprites/Store_Container_Prototype.png" id="5_hq1qq"]
-[ext_resource type="Texture2D" uid="uid://dgvlhfprwpv23" path="res://sprites/Store_Prototype.png" id="6_gsfny"]
-[ext_resource type="Texture2D" uid="uid://byvqy1gq2n6m8" path="res://sprites/Store_Dialogue.png" id="7_wx5b0"]
-[ext_resource type="Texture2D" uid="uid://roa1w78sw6ji" path="res://sprites/Store_Proceed_Prototype.png" id="8_y1n3w"]
+[ext_resource type="PackedScene" uid="uid://b5wj2b7xupxnt" path="res://scenes/Background.tscn" id="5_126te"]
+[ext_resource type="Script" uid="uid://dpbw71iihp5cf" path="res://scripts/UI/juicy_panel.gd" id="5_xlrfv"]
+[ext_resource type="FontFile" uid="uid://b0l18oi7rx53v" path="res://sprites/UI/GrapeSoda.ttf" id="7_mi8qk"]
+[ext_resource type="Theme" uid="uid://cqid3bnmwasym" path="res://sprites/UI/buttonTheme.tres" id="8_126te"]
+[ext_resource type="Script" uid="uid://c6uag2dm8825l" path="res://scripts/UI/juicy_button.gd" id="8_xlrfv"]
 
 [node name="Store" type="Control" unique_id=1302413312 node_paths=PackedStringArray("container")]
 layout_mode = 3
@@ -18,43 +19,54 @@ script = ExtResource("1_ayu48")
 inventory = ExtResource("2_xlrfv")
 universe = ExtResource("3_126te")
 store_slot = ExtResource("4_6hsdf")
-container = NodePath("HBoxContainer")
+container = NodePath("TextureRect/HBoxContainer")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=343051470]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 55.0
-offset_right = 487.0
-offset_bottom = 258.0
-texture = ExtResource("5_hq1qq")
+[node name="Background" parent="." unique_id=2086670229 instance=ExtResource("5_126te")]
+modulate = Color(0.8474744, 0.84747446, 0.84747446, 1)
+layout_mode = 1
+offset_right = 1112.0
+offset_bottom = 608.0
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1965449008]
+[node name="TextureRect" type="PanelContainer" parent="." unique_id=1553137047]
 layout_mode = 0
-offset_left = 712.0
-offset_top = 52.0
-offset_right = 1082.0
-offset_bottom = 311.0
-texture = ExtResource("6_gsfny")
+offset_left = 348.0
+offset_top = 175.0
+offset_right = 828.0
+offset_bottom = 435.0
+script = ExtResource("5_xlrfv")
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=8582353]
-layout_mode = 0
-offset_left = 632.0
-offset_top = 309.0
-offset_right = 1072.0
-offset_bottom = 589.0
-texture = ExtResource("7_wx5b0")
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=1338043073]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=140094425]
+[node name="Label" type="Label" parent="." unique_id=1434979965]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 405.0
-offset_right = 524.0
-offset_bottom = 556.0
-texture_normal = ExtResource("8_y1n3w")
+offset_left = 100.0
+offset_top = 27.0
+offset_right = 1060.0
+offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("7_mi8qk")
+theme_override_font_sizes/font_size = 100
+text = "Bem vindo a nossa loja!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1338043073]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 88.0
-offset_right = 523.0
-offset_bottom = 298.0
+[node name="Button" type="Button" parent="." unique_id=1344181619]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 512.0
+offset_right = 272.0
+offset_bottom = 596.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_126te")
+theme_override_fonts/font = ExtResource("7_mi8qk")
+theme_override_font_sizes/font_size = 48
+text = "Continue"
+script = ExtResource("8_xlrfv")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

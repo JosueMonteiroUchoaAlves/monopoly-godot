@@ -68,7 +68,7 @@ func start_round() -> void:
 	var rng = RandomNumberGenerator.new()
 	var current_turn_index: int = 0
 	
-	while main_player.player.get_money() >= 0 && main_player.player.get_money() < 1000 && players.size() > 1:
+	while false && main_player.player.get_money() >= 0 && main_player.player.get_money() < 1000 && players.size() > 1:
 		var current_player_controller: Controller = players[current_turn_index]
 		var current_player: Player = current_player_controller.player
 		if current_player_controller.is_bankrupt: 
@@ -134,6 +134,7 @@ func start_round() -> void:
 				round_log("\nFim de jogo! Todos os bots faliram e você venceu a partida!")
 			else:
 				round_log("\nO %s amassou todo mundo e venceu!" % vencedor.player.get_player_name())
+	EventBus.round_finished.emit()
 	
 func on_player_bankrupt(dead_controller: Controller) -> void:
 	round_log("\n[FALÊNCIA] O jogador %s quebrou e foi de arrasta pra cima!" % dead_controller.player.get_player_name())

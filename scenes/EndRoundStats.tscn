@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://x4oulwwipibm"]
+
+[ext_resource type="Script" uid="uid://ciecdq5yb30t" path="res://scenes/scripts/EndRoundStats.gd" id="1_bf1kn"]
+[ext_resource type="Script" uid="uid://dpbw71iihp5cf" path="res://scripts/UI/juicy_panel.gd" id="2_hegw0"]
+[ext_resource type="Script" uid="uid://c6uag2dm8825l" path="res://scripts/UI/juicy_button.gd" id="2_id3pq"]
+
+[node name="EndRoundStats" type="Control" unique_id=1421329111]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bf1kn")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1516158900]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -175.0
+offset_right = 131.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hegw0")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1712132878]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=568010415]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=381762536]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1606412467]
+layout_mode = 2
+text = "Parabens, voce fez alguns pontos ai!"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1469092411]
+layout_mode = 2
+text = "*quantidade de pontos*"
+
+[node name="NextRound" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=47691126]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 30
+text = "Proximo round"
+script = ExtResource("2_id3pq")
+
+[node name="Store" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1287486666]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 30
+text = "Ir para a loja"
+script = ExtResource("2_id3pq")
+
+[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=4602766]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 30
+text = "Sair para o menu"
+script = ExtResource("2_id3pq")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/NextRound" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Store" to="." method="_on_store_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
