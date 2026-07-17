@@ -13,11 +13,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 288.0
-offset_top = 165.0
-offset_right = 288.0
-offset_bottom = 165.0
+offset_left = 558.0
+offset_top = 395.0
+offset_right = 558.0
+offset_bottom = 395.0
 grow_vertical = 0
 
 [node name="Board" parent="." unique_id=1499039582 instance=ExtResource("1_tccmb")]
-position = Vector2(0, 3)
+position = Vector2(559, 330)

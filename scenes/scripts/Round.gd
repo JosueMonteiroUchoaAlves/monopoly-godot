@@ -12,7 +12,8 @@ var player_nodes: Array[PlayerNode]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	round_setup()
-	start_round()
+	# nao esta funcionando no momento:
+	#start_round()
 	
 func round_setup() -> void:
 	# Vai ter que ser 0 mesmo por causa do caso em que 
@@ -57,7 +58,6 @@ func round_setup() -> void:
 		controller.bankruptcy.connect(on_player_bankrupt)
 	
 	board.setup(tiles, players, user_choice_UI)
-
 
 func start_round() -> void:
 	var rng = RandomNumberGenerator.new()
