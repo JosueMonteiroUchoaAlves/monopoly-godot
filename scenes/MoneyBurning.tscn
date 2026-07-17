@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bkqf254nv0cmj"]
+
+[ext_resource type="Texture2D" uid="uid://be2yci1kt1jky" path="res://sprites/money-falling.png" id="1_7ho8i"]
+
+[sub_resource type="Shader" id="Shader_7ho8i"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+uniform sampler2D noise_tex : repeat_enable;
+uniform vec4 fire_edge_color : source_color = vec4(1.0, 0.15, 0.0, 1.0); 
+uniform vec4 fire_core_color : source_color = vec4(1.0, 0.9, 0.0, 1.0); 
+uniform float edge_thickness = 0.17;
+
+// 1. Variável de ponte para transitar o UV puro da geometria para os pixels
+varying vec2 base_uv;
+
+void vertex() {
+    // 2. Salva o UV quadrado (0.0 a 1.0) antes dele ser retalhado em 49 partes
+    base_uv = UV; 
+    
+    float h_frames = float(particles_anim_h_frames);
+    float v_frames = float(particles_anim_v_frames);
+    VERTEX.xy /= vec2(h_frames, v_frames);
+    float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+    float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+    if (!particles_anim_loop) {
+        particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+    } else {
+        particle_frame = mod(particle_frame, particle_total_frames);
+    }   
+    UV /= vec2(h_frames, v_frames);
+    UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+    if (tex_color.a == 0.0) discard;
+
+    float life = COLOR.a; 
+    
+    // 3. Lê o ruído usando o UV puro. A distorção horizontal acaba aqui.
+    float noise = texture(noise_tex, base_uv).r;
+    
+    float threshold = life * (1.0 + edge_thickness * 2.0) - edge_thickness;
+
+    if (noise > threshold) {
+        discard;
+    }
+
+    float edge_dist = threshold - noise;
+    if (edge_dist < edge_thickness) {
+        float fire_blend = edge_dist / edge_thickness;
+        tex_color.rgb = mix(fire_edge_color.rgb, fire_core_color.rgb, fire_blend);
+        tex_color.a = 1.0; 
+    }
+
+    COLOR = tex_color;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7w0b0"]
+noise_type = 0
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ho8i"]
+noise = SubResource("FastNoiseLite_7w0b0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7w0b0"]
+shader = SubResource("Shader_7ho8i")
+shader_parameter/particles_anim_h_frames = 49
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = true
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_7ho8i")
+shader_parameter/fire_edge_color = Color(0.8509804, 0.37254903, 0, 1)
+shader_parameter/fire_core_color = Color(1, 0.967992, 0.63087505, 1)
+shader_parameter/edge_thickness = 0.08
+
+[sub_resource type="Gradient" id="Gradient_7ho8i"]
+offsets = PackedFloat32Array(0.6634921, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ax2ea"]
+gradient = SubResource("Gradient_7ho8i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6vkr"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(576, -16, 0)
+emission_shape = 3
+emission_box_extents = Vector3(576, 1, 1)
+initial_velocity_min = -30.0
+initial_velocity_max = 30.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+gravity = Vector3(0, 250, 0)
+damping_max = 2.0
+scale_min = 0.7
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_ax2ea")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+turbulence_enabled = true
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 3.375
+turbulence_noise_speed_random = 1.93
+turbulence_influence_min = 0.087
+turbulence_influence_max = 0.447
+
+[node name="Node2D" type="Node2D" unique_id=94565544]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=735023115]
+material = SubResource("ShaderMaterial_7w0b0")
+amount = 50
+texture = ExtResource("1_7ho8i")
+lifetime = 10.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_v6vkr")

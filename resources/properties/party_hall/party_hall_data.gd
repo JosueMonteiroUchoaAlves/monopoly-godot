@@ -1,3 +1,4 @@
+@tool
 class_name PartyHallData extends PropertyData
 
 func _init():

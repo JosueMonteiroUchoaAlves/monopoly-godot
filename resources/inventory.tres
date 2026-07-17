@@ -2,15 +2,33 @@
 
 [ext_resource type="Script" uid="uid://ba5k6nyw4p3an" path="res://scripts/inventory.gd" id="1_j6v23"]
 [ext_resource type="Script" uid="uid://cnii0j8eoexxr" path="res://scripts/abstracts/resources/property_data.gd" id="1_q3p8o"]
-[ext_resource type="Resource" uid="uid://dhg2b6wwtymuv" path="res://resources/properties/oil_platform/oil_platform.tres" id="2_8edio"]
+[ext_resource type="Resource" uid="uid://bhhs0abyvs82x" path="res://resources/properties/party_hall/party_hall.tres" id="2_38lgx"]
+[ext_resource type="Resource" uid="uid://dylb27f5yros0" path="res://resources/properties/factory/factory.tres" id="3_7ro41"]
 [ext_resource type="Script" uid="uid://db8sdaisyvwxa" path="res://scripts/abstracts/resources/tile_data.gd" id="3_xov08"]
 [ext_resource type="Script" uid="uid://b86g2aj146yyw" path="res://scripts/abstracts/resources/title_data.gd" id="4_ey7vp"]
-[ext_resource type="Resource" uid="uid://l6jj55coavww" path="res://resources/tiles/property_tile/property_tile.tres" id="4_xqdwh"]
+[ext_resource type="Texture2D" uid="uid://clmssghoroysc" path="res://resources/tiles/property_tile/Property_Tile_Sprite.png" id="5_ngufk"]
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="6_1pb6r"]
 [ext_resource type="Resource" uid="uid://jb0sp11g3g27" path="res://resources/tiles/start_tile/start_tile.tres" id="7_3bln2"]
 [ext_resource type="Resource" uid="uid://cije2u763ytb2" path="res://resources/titles/colonel/colonel.tres" id="8_3bln2"]
+[ext_resource type="Resource" uid="uid://bsi6g5xi128nj" path="res://resources/tiles/property_tile/property_tiles/avenida-vitoria/avenida-vitoria.tres" id="8_76wpf"]
+[ext_resource type="Resource" uid="uid://dlb0kgwhylhxi" path="res://resources/tiles/property_tile/property_tiles/avenida-dos-presidentes/avenida-dos-presidentes.tres" id="9_38lgx"]
+[ext_resource type="Resource" uid="uid://cff7jbe4ynxks" path="res://resources/tiles/property_tile/property_tiles/avenida-dos-milionarios/avenida-dos-milionarios.tres" id="10_7ro41"]
+[ext_resource type="Resource" uid="uid://cbnosbghfby2v" path="res://resources/tiles/property_tile/property_tiles/avenida-dos-fundadores/avenida-dos-fundadores.tres" id="11_3s27d"]
+[ext_resource type="Resource" uid="uid://davfu1likdis" path="res://resources/tiles/property_tile/property_tiles/avenida-do-sol/avenida-do-sol.tres" id="12_j7rec"]
+[ext_resource type="Resource" uid="uid://y0upsowrwcqg" path="res://resources/tiles/property_tile/property_tiles/avenida-das-nacoes/avenida-das-nacoes.tres" id="13_7ybrg"]
+[ext_resource type="Resource" uid="uid://bww771yvb81vr" path="res://resources/tiles/property_tile/property_tiles/avenida-aurora/avenida-aurora.tres" id="14_mfvhj"]
+[ext_resource type="Resource" uid="uid://sa2pyv22wgd6" path="res://resources/tiles/property_tile/property_tiles/alameda-real/alameda-real.tres" id="15_l877i"]
+
+[sub_resource type="Resource" id="Resource_xrj5v"]
+script = ExtResource("6_1pb6r")
+_name = "Casa com Propriedade"
+_description = "Possui uma Propriedade!"
+_store_price = 2
+_card_texture = ExtResource("5_ngufk")
+metadata/_custom_type_script = "uid://jq4hme3iukbe"
 
 [resource]
 script = ExtResource("1_j6v23")
-tiles = Array[ExtResource("3_xov08")]([ExtResource("4_xqdwh"), ExtResource("7_3bln2")])
+tiles = Array[ExtResource("3_xov08")]([SubResource("Resource_xrj5v"), ExtResource("7_3bln2"), ExtResource("8_76wpf"), ExtResource("9_38lgx"), ExtResource("10_7ro41"), ExtResource("11_3s27d"), ExtResource("12_j7rec"), ExtResource("13_7ybrg"), ExtResource("14_mfvhj"), ExtResource("15_l877i")])
 titles = Array[ExtResource("4_ey7vp")]([ExtResource("8_3bln2")])
-properties = Array[ExtResource("1_q3p8o")]([ExtResource("2_8edio")])
+properties = Array[ExtResource("1_q3p8o")]([ExtResource("2_38lgx"), ExtResource("3_7ro41")])

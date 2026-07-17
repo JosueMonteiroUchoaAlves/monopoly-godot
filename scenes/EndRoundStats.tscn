@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ciecdq5yb30t" path="res://scenes/scripts/EndRoundStats.gd" id="1_bf1kn"]
 [ext_resource type="Script" uid="uid://dpbw71iihp5cf" path="res://scripts/UI/juicy_panel.gd" id="2_hegw0"]
 [ext_resource type="Script" uid="uid://c6uag2dm8825l" path="res://scripts/UI/juicy_button.gd" id="2_id3pq"]
+[ext_resource type="PackedScene" uid="uid://bkqf254nv0cmj" path="res://scenes/MoneyBurning.tscn" id="2_qqnet"]
+[ext_resource type="FontFile" uid="uid://b0l18oi7rx53v" path="res://sprites/UI/GrapeSoda.ttf" id="4_06735"]
 
 [node name="EndRoundStats" type="Control" unique_id=1421329111]
 layout_mode = 3
@@ -12,6 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bf1kn")
+
+[node name="Node2D" parent="." unique_id=94565544 instance=ExtResource("2_qqnet")]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1516158900]
 layout_mode = 1
@@ -45,16 +49,21 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1606412467]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_06735")
+theme_override_font_sizes/font_size = 30
 text = "Parabens, voce fez alguns pontos ai!"
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1469092411]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_06735")
+theme_override_font_sizes/font_size = 30
 text = "*quantidade de pontos*"
 
 [node name="NextRound" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=47691126]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("4_06735")
 theme_override_font_sizes/font_size = 30
 text = "Proximo round"
 script = ExtResource("2_id3pq")
@@ -63,6 +72,7 @@ script = ExtResource("2_id3pq")
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("4_06735")
 theme_override_font_sizes/font_size = 30
 text = "Ir para a loja"
 script = ExtResource("2_id3pq")
@@ -71,6 +81,7 @@ script = ExtResource("2_id3pq")
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("4_06735")
 theme_override_font_sizes/font_size = 30
 text = "Sair para o menu"
 script = ExtResource("2_id3pq")

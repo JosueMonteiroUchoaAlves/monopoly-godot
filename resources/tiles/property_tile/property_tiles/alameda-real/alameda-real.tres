@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PropertyTileData" format=3 uid="uid://sa2pyv22wgd6"]
+
+[ext_resource type="Texture2D" uid="uid://6dn1v0viubvi" path="res://resources/tiles/property_tile/property_tiles/alameda-real/alameda-real.png" id="1_b1eyb"]
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="1_lok4v"]
+
+[resource]
+script = ExtResource("1_lok4v")
+_name = "Alameda Real"
+_store_price = 9
+_card_texture = ExtResource("1_b1eyb")
+metadata/_custom_type_script = "uid://jq4hme3iukbe"

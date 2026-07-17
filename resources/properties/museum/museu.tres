@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MuseumData" format=3 uid="uid://d1ws8qxyfd7ti"]
+
+[ext_resource type="Script" uid="uid://cd362wmdjf1u1" path="res://resources/properties/museum/museum_data.gd" id="1_fd3mq"]
+[ext_resource type="Texture2D" uid="uid://0h3kjrklbjf1" path="res://resources/properties/museum/museu.png" id="1_k5gc8"]
+
+[resource]
+script = ExtResource("1_fd3mq")
+_name = "Museu"
+_description = "Quando pisarem, ganha R$20 + R$40 para cada carta do tipo Artístico"
+_store_price = 4
+_card_texture = ExtResource("1_k5gc8")
+metadata/_custom_type_script = "uid://cd362wmdjf1u1"

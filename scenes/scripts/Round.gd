@@ -1,6 +1,6 @@
 class_name Round extends Node2D
 
-@onready var user_choice_UI: Control = $Control
+@onready var user_choice_UI: Control = $PanelContainer/Control
 @onready var board: BoardNode = $Board
 
 var main_player: MainController
@@ -19,6 +19,7 @@ func _ready() -> void:
 	start_round()
 	
 func round_setup() -> void:
+	inventory.reset_pools()
 	# Vai ter que ser 0 mesmo por causa do caso em que 
 	# ele eh sorteado andar 0 casas quando ele ainda esta na -1
 	# TODO: adicionar a Tile inicial
@@ -43,13 +44,23 @@ func round_setup() -> void:
 	var property_tiles: Array[LogicTile] = regular_tiles.filter(func(tile): return is_instance_of(tile.data, PropertyTileData))
 	for tile in property_tiles:
 		var data = inventory.pick_property()
+		
+		# Nova checagem: Se acabaram as cartas, pare imediatamente!
+		if data == null:
+			printerr("Faltaram cartas! O tabuleiro exigiu uma propriedade, mas o baralho do inventário acabou.")
+			break # Sai do loop para não quebrar o jogo
+			
+		print("Tentando criar logic para: ", data.resource_path)
+		if data.context_type == null:
+			printerr("ALGUEM TA SEM A DESFGRAMA DO CONTEXT TYPE! O context_type de ", data.resource_path, " esta vazio")	
+			
 		var logic = LogicProperty.new(
 			data,
 			data.context_type.new()
 		)
 		properties.append(logic)
 		tile.context.property = weakref(logic)
-
+		
 	var corners = 0
 	var regulars = 0
 	for i in range(Board.SIZE):

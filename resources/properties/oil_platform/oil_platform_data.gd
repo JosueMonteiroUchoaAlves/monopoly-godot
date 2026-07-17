@@ -1,3 +1,4 @@
+@tool
 class_name OilPlatformData extends PropertyData
 
 @export var chance = 0.25
@@ -5,7 +6,7 @@ class_name OilPlatformData extends PropertyData
 func _init():
 	type = ItemType.exploration
 	context_type = load("res://resources/properties/oil_platform/oil_platform_context.gd")
-	
+	print(context_type)
 func charge_rent(event: RentContext, turn: TurnContext, context: PropertyContext):
 	check_context_format(context)
 	if not context.is_exploded:

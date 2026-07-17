@@ -4,23 +4,39 @@
 [ext_resource type="PackedScene" uid="uid://boomd2ke57g72" path="res://scenes/Control.tscn" id="1_oqe1w"]
 [ext_resource type="PackedScene" uid="uid://dl1cqpu3o42dl" path="res://scenes/Board.tscn" id="1_tccmb"]
 [ext_resource type="Resource" uid="uid://b33783hqq6n11" path="res://resources/inventory.tres" id="2_21nnh"]
+[ext_resource type="PackedScene" uid="uid://b5wj2b7xupxnt" path="res://scenes/Background.tscn" id="3_bxgkc"]
 [ext_resource type="PackedScene" uid="uid://dajjwn4t82yu5" path="res://scenes/RoundLogs.tscn" id="4_h7of1"]
 
 [node name="Round" type="Node2D" unique_id=27026996]
 script = ExtResource("1_a4rw8")
 inventory = ExtResource("2_21nnh")
 
-[node name="Control" parent="." unique_id=841204616 instance=ExtResource("1_oqe1w")]
-anchors_preset = 7
+[node name="BgParentNode" type="Control" parent="." unique_id=330454947]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Background" parent="BgParentNode" unique_id=2086670229 instance=ExtResource("3_bxgkc")]
+layout_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=131928423]
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 558.0
-offset_top = 395.0
-offset_right = 558.0
-offset_bottom = 395.0
-grow_vertical = 0
+anchor_bottom = 0.5
+offset_left = 454.0
+offset_top = 372.355
+offset_right = 662.0
+offset_bottom = 457.35504
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9974443, 1)
+size_flags_horizontal = 4
+
+[node name="Control" parent="PanelContainer" unique_id=841204616 instance=ExtResource("1_oqe1w")]
+layout_mode = 2
 
 [node name="Board" parent="." unique_id=1499039582 instance=ExtResource("1_tccmb")]
 position = Vector2(559, 330)

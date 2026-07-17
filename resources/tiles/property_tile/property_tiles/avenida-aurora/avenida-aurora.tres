@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PropertyTileData" format=3 uid="uid://bww771yvb81vr"]
+
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="1_0vfi1"]
+[ext_resource type="Texture2D" uid="uid://1q0l8n5g7kdq" path="res://resources/tiles/property_tile/property_tiles/avenida-aurora/avenida-aurora.png" id="1_1isyg"]
+
+[resource]
+script = ExtResource("1_0vfi1")
+_name = "Avenida Aurora"
+_store_price = 8
+_card_texture = ExtResource("1_1isyg")
+metadata/_custom_type_script = "uid://jq4hme3iukbe"

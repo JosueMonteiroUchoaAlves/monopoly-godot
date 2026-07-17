@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PropertyTileData" format=3 uid="uid://y0upsowrwcqg"]
+
+[ext_resource type="Texture2D" uid="uid://dkyn4uudx218e" path="res://resources/tiles/property_tile/property_tiles/avenida-das-nacoes/avenida-das-nacoes.png" id="1_irrdw"]
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="1_upi70"]
+
+[resource]
+script = ExtResource("1_upi70")
+_name = "Avenida das Nacoes"
+_store_price = 8
+_card_texture = ExtResource("1_irrdw")
+metadata/_custom_type_script = "uid://jq4hme3iukbe"

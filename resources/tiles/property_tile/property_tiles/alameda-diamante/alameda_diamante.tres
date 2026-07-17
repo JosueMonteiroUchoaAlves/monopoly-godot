@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PropertyTileData" format=3 uid="uid://doj7bwsmom2da"]
+
+[ext_resource type="Texture2D" uid="uid://7fxd06fho6vy" path="res://resources/tiles/property_tile/property_tiles/alameda-diamante/alameda-diamante.png" id="1_iqlch"]
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="2_552nh"]
+
+[resource]
+script = ExtResource("2_552nh")
+_name = "Alameda diamante"
+_store_price = 10
+_card_texture = ExtResource("1_iqlch")
+metadata/_custom_type_script = "uid://jq4hme3iukbe"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PropertyTileData" format=3 uid="uid://cbnosbghfby2v"]
+
+[ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="1_mxb4g"]
+
+[resource]
+script = ExtResource("1_mxb4g")
+_name = "Avenida dos Fundadoes"
+_store_price = 6
+metadata/_custom_type_script = "uid://jq4hme3iukbe"

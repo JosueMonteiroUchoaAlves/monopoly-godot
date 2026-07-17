@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://ba6p5p811v26r"]
 
 [ext_resource type="Script" uid="uid://c2v0b6wfp52op" path="res://scenes/scripts/Game.gd" id="1_ibkli"]
+[ext_resource type="AudioStream" uid="uid://cjg0s7vgicf8v" path="res://audio/intro loop.wav" id="2_qbsmt"]
 
 [node name="Game" type="Node" unique_id=1730410151]
 script = ExtResource("1_ibkli")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=997256492]
+stream = ExtResource("2_qbsmt")
+autoplay = true

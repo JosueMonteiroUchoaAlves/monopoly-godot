@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="OilPlatformData" format=3 uid="uid://dhg2b6wwtymuv"]
 
-[ext_resource type="Texture2D" uid="uid://vhirf86ihcil" path="res://resources/properties/oil_platform/oil_platform_sprite.png" id="1_25fp6"]
+[ext_resource type="Texture2D" uid="uid://wgj426nd1fyu" path="res://resources/properties/oil_platform/plataforma_de_petroleo.png" id="1_dlrq3"]
 [ext_resource type="Script" uid="uid://bnakk01ukhoxt" path="res://resources/properties/oil_platform/oil_platform_data.gd" id="1_p5scy"]
 
 [resource]
 script = ExtResource("1_p5scy")
-_price = 50
-_name = "Plataforma de Petroleo"
-_description = "1/4 de chance de explodir"
-_store_price = 3
-_card_texture = ExtResource("1_25fp6")
+_name = "Plataforma de petroleo"
+_description = "Ganha R$200 ! Porem ha 1/4 de chance de explodir"
+_store_price = 5
+_card_texture = ExtResource("1_dlrq3")
 metadata/_custom_type_script = "uid://bnakk01ukhoxt"

@@ -1,3 +1,4 @@
+@tool
 class_name MuseumData extends PropertyData
 
 @export var money_per_art: int = 20

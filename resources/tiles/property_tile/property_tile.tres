@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://clmssghoroysc" path="res://resources/tiles/property_tile/Property_Tile_Sprite.png" id="1_v17sp"]
 [ext_resource type="Script" uid="uid://jq4hme3iukbe" path="res://resources/tiles/property_tile/property_tile.gd" id="2_477st"]
-[ext_resource type="Script" uid="uid://du1de31ahtqx8" path="res://resources/tiles/property_tile/property_tile_context.gd" id="2_ncn7a"]
 
 [resource]
 script = ExtResource("2_477st")
@@ -10,5 +9,4 @@ _name = "Casa com Propriedade"
 _description = "Possui uma Propriedade!"
 _store_price = 2
 _card_texture = ExtResource("1_v17sp")
-context_type = ExtResource("2_ncn7a")
 metadata/_custom_type_script = "uid://jq4hme3iukbe"

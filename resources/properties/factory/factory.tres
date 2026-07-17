@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FactoryData" format=3 uid="uid://dylb27f5yros0"]
+
+[ext_resource type="Script" uid="uid://bsl7cxtbq41f1" path="res://resources/properties/factory/factory_data.gd" id="1_nsm06"]
+[ext_resource type="Texture2D" uid="uid://xdes4euit108" path="res://resources/properties/factory/fabrica.png" id="1_yn0wi"]
+
+[resource]
+script = ExtResource("1_nsm06")
+_name = "Fabrica"
+_description = "Garante uma renda R$30 ao final de todo turno"
+_store_price = 4
+_card_texture = ExtResource("1_yn0wi")
+metadata/_custom_type_script = "uid://bsl7cxtbq41f1"

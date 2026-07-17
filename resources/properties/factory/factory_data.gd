@@ -1,3 +1,4 @@
+@tool
 class_name FactoryData extends PropertyData
 
 @export var passive_income: int = 20

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://boomd2ke57g72"]
 
 [ext_resource type="Script" uid="uid://ci7fkhj6u2qft" path="res://scenes/scripts/Control.gd" id="1_5p55f"]
+[ext_resource type="Script" uid="uid://dpbw71iihp5cf" path="res://scripts/UI/juicy_panel.gd" id="2_c80oo"]
+[ext_resource type="Script" uid="uid://c6uag2dm8825l" path="res://scripts/UI/juicy_button.gd" id="3_hmy8i"]
 
 [node name="Control" type="Control" unique_id=669627200]
 layout_mode = 3
@@ -14,17 +16,12 @@ script = ExtResource("1_5p55f")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=655340379]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.5
-offset_top = -20.5
-offset_right = 50.5
-offset_bottom = 20.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_c80oo")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1785223567]
 layout_mode = 2
@@ -38,11 +35,17 @@ layout_mode = 2
 
 [node name="buy" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1480416776]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
 text = "BUY"
+script = ExtResource("3_hmy8i")
 
 [node name="pass" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=849353543]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
 text = "PASS"
+script = ExtResource("3_hmy8i")
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/buy" to="." method="_on_buy_button_up"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/pass" to="." method="_on_pass_button_up"]

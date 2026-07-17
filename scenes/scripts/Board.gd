@@ -15,6 +15,29 @@ func setup(setup_tiles: Array[LogicTile], players: Array[Controller], user_choic
 		# linkar TileNode com seu respectivo tile
 		tiles[i].logic_core = setup_tiles[i]
 		
+		# Aplicando a textura visual
+		var tile_data = setup_tiles[i].data
+		
+		# Se for uma casa de Propriedade, tenta exibir a imagem da empresa/lote
+		if tile_data is PropertyTileData and setup_tiles[i].context.property != null:
+			var logic_prop = setup_tiles[i].context.property.get_ref()
+			
+			# Tenta pegar a textura da fábrica/plataforma
+			if logic_prop and logic_prop.data.get("_card_texture"):
+				tiles[i].definir_textura(logic_prop.data._card_texture)
+			# Senao: Se a propriedade não tiver textura, usa a imagem da própria casa
+			elif tile_data.get("_card_texture"): 
+				tiles[i].definir_textura(tile_data._card_texture)
+				
+		# Se for uma casa especial (Start Tile, Canto, etc)
+		else:
+			# Checa primeiro 'board_texture' (que você usou no StartTile) e depois '_card_texture'
+			if tile_data.get("board_texture"):
+				tiles[i].definir_textura(tile_data.board_texture)
+			elif tile_data.get("_card_texture"):
+				tiles[i].definir_textura(tile_data._card_texture)
+		
+		
 func get_children_tiles() -> Array[TileNode]:
 	var tiles: Array[TileNode] = []
 	
