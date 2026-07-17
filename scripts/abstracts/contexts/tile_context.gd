@@ -1,1 +1,1 @@
-class_name TileContext extends Context
+class_name TileContext extends ItemContext

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ErraticTycoonData" format=3 uid="uid://cqtu1fl65l7a2"]
+
+[ext_resource type="Script" uid="uid://dfsnw1qgm1os5" path="res://resources/titles/erratic_tycoon/erratic_tycoon_data.gd" id="1_fopuj"]
+
+[resource]
+script = ExtResource("1_fopuj")
+metadata/_custom_type_script = "uid://dfsnw1qgm1os5"
