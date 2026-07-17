@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OilPlatformData" format=3 uid="uid://dhg2b6wwtymuv"]
+
+[ext_resource type="Script" uid="uid://bnakk01ukhoxt" path="res://resources/properties/oil_platform/oil_platform_data.gd" id="1_p5scy"]
+
+[resource]
+script = ExtResource("1_p5scy")
+_price = 70
+rent = 56
+_name = "Plataforma de Petroleo"
+_description = "1/4 de chance de explodir"
+_store_price = 2
+_needs_sub = true
+type = 0
+metadata/_custom_type_script = "uid://bnakk01ukhoxt"
