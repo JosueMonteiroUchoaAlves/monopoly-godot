@@ -68,7 +68,7 @@ func start_round() -> void:
 	var rng = RandomNumberGenerator.new()
 	var current_turn_index: int = 0
 	
-	while main_player.player.get_money() >= 0 && main_player.player.get_money() < 1000 && players.size() > 1:
+	while false && main_player.player.get_money() >= 0 && main_player.player.get_money() < 1000 && players.size() > 1:
 		var current_player_controller: Controller = players[current_turn_index]
 		var current_player: Player = current_player_controller.player
 		if current_player_controller.is_bankrupt: 

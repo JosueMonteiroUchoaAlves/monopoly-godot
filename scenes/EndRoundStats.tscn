@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://x4oulwwipibm"]
 
 [ext_resource type="Script" uid="uid://ciecdq5yb30t" path="res://scenes/scripts/EndRoundStats.gd" id="1_bf1kn"]
+[ext_resource type="Script" uid="uid://dpbw71iihp5cf" path="res://scripts/UI/juicy_panel.gd" id="2_hegw0"]
+[ext_resource type="Script" uid="uid://c6uag2dm8825l" path="res://scripts/UI/juicy_button.gd" id="2_id3pq"]
 
 [node name="EndRoundStats" type="Control" unique_id=1421329111]
 layout_mode = 3
@@ -24,6 +26,7 @@ offset_right = 131.0
 offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_hegw0")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1712132878]
 layout_mode = 2
@@ -52,19 +55,25 @@ text = "*quantidade de pontos*"
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_font_sizes/font_size = 30
 text = "Proximo round"
+script = ExtResource("2_id3pq")
 
 [node name="Store" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1287486666]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_font_sizes/font_size = 30
 text = "Ir para a loja"
+script = ExtResource("2_id3pq")
 
 [node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=4602766]
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_font_sizes/font_size = 30
 text = "Sair para o menu"
+script = ExtResource("2_id3pq")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/NextRound" to="." method="_on_next_round_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Store" to="." method="_on_store_pressed"]

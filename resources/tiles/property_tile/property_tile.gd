@@ -8,4 +8,5 @@ func land_on(event: LandOnContext, turn: TurnContext, data: TileContext):
 	if data.property.player == null:
 		can_be_bought.emit(self)
 	else:
-		data.property.charge_rent(player, data.property.owner)
+		pass
+		#data.property.charge_rent(player, data.property.owner)
