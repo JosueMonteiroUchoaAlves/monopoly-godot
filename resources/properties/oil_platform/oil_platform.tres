@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_p5scy")
+_price = 50
 _name = "Plataforma de Petroleo"
 _description = "1/4 de chance de explodir"
 _store_price = 3

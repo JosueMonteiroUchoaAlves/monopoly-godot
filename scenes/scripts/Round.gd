@@ -90,8 +90,6 @@ func start_round() -> void:
 	
 	var turn_context = TurnContext.new()
 	
-	var turn_context = TurnContext.new()
-	
 	while main_player.player.get_money() >= 0 && main_player.player.get_money() < 1000 && players.size() > 1:
 		var current_player_controller: Controller = players[current_turn_index]
 		var current_player: Player = current_player_controller.player
