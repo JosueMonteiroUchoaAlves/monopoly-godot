@@ -5,11 +5,9 @@ extends Control
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func _on_button_start_game_pressed() -> void:
 	EventBus.start_game_button_was_pressed.emit()
@@ -17,3 +15,7 @@ func _on_button_start_game_pressed() -> void:
 
 func _on_button_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_settings_pressed() -> void:
+	pass # Replace with function body.
