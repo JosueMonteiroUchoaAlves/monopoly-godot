@@ -1,19 +1,19 @@
 class_name BoardNode extends Node2D
 
 @onready var _user_choice_UI: Control
-var _tiles: Array[TileNode]
+var tiles: Array[TileNode]
 var board_core: Board 
 	
 func _ready() -> void:
-	_tiles = get_children_tiles()
+	tiles = get_children_tiles()
 
-func setup(tiles: Array[LogicTile], players: Array[Controller], user_choice_UI_T: Control) -> void:
+func setup(setup_tiles: Array[LogicTile], players: Array[Controller], user_choice_UI_T: Control) -> void:
 	_user_choice_UI = user_choice_UI_T
-	board_core = Board.new(tiles, players)
+	board_core = Board.new(setup_tiles, players)
 	
-	for i in range(Board.SIZE-4):
+	for i in range(Board.SIZE):
 		# linkar TileNode com seu respectivo tile
-		_tiles[i].logic_core = tiles[i]
+		tiles[i].logic_core = setup_tiles[i]
 		
 func get_children_tiles() -> Array[TileNode]:
 	var tiles: Array[TileNode] = []
@@ -34,16 +34,17 @@ func get_players() -> Array[PlayerNode]:
 func execute_turn(tile_position: int, player: Controller):
 	# Qualquer tile vai ter um logic_core que recebe um controller
 	# nao lembro porque mantive aquela condicional... lmfao
-	_tiles[tile_position].logic_core.land_on(player) # Controller do player
+	var logic_tile = tiles[tile_position].logic_core
+	logic_tile.data.land_on(player) # Controller do player
 
 func expropriation_of_assets(bankruptPlayer: Player):
-	for tile in _tiles:
+	for tile in tiles:
 		if tile.logic_core.data is PropertyTileData:
 			if tile.logic_core.context.property.context._owner == bankruptPlayer:
 				tile.logic_core.context.property.context._owner = null
 
 func get_safe_drop_coordinate(target_tile_index: int) -> Vector2:
-	var base_coordinate: Vector2 = _tiles[target_tile_index].marker.global_position
+	var base_coordinate: Vector2 = tiles[target_tile_index].marker.global_position
 	
 	# Conta quantos jogadores já estão nessa casa
 	var occupants: int = 0

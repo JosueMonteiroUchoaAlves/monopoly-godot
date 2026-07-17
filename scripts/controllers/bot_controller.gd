@@ -4,13 +4,19 @@ class_name BotController extends Controller
 var aggressiveness: int = 3 # maximo eh 10 - caio mude pra variavel
 
 var rng = RandomNumberGenerator.new()
-func execute_turn(_property: Property):
+func execute_turn(_property: LogicProperty):
 	round_log("%s esta pensando..."%player._name)
 	
 	var random_choice = rng.randi_range(1,10)
 	if random_choice <= aggressiveness:
 		round_log("%s resolveu comprar a propriedade"%player._name)
-		_property.buy_property(player)
+		var buy_property = BuyPropertyContext.new(
+			player,
+			weakref(_property),
+			_property.data._price
+		)
+		# TurnContext.new() é uma gambiarra. Idealmente, essa informação seria do Round
+		_property.data.buy_property(buy_property, TurnContext.new(), _property.context)
 		round_log("agora ele tem %d no bolso"%player.get_money())
 	else: 
 		round_log("%s nao quis a propriedade"%player._name)

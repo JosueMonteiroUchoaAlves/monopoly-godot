@@ -1,13 +1,13 @@
 class_name GenericTileData extends ItemData
 
 @export var board_texture: Texture2D
-@export var is_corner: bool = false
+var is_corner: bool = false
 
 func _init() -> void:
 	_needs_sub = true
 
-func land_on(event: LandOnContext, turn: TurnContext, data: TileContext):
-	check_context_format(data)
+#func land_on(event: LandOnContext, turn: TurnContext, context: TileContext):
+#	check_context_format(context)
 
-func step_over(event: StepOverContext, turn: TurnContext, data: TileContext):
-	check_context_format(data)
+#func step_over(event: StepOverContext, turn: TurnContext, context: TileContext):
+#	check_context_format(context)

@@ -7,9 +7,9 @@ func _init():
 func on_land_on_event(
 	event: LandOnContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if event.player == data.owner.player and event.tile.type == ItemType.industry:
-		turn.nextController = data.owner
+	super(event, turn, context)
+	if event.player == context.owner.player and event.tile.type == ItemType.industry:
+		turn.nextController = context.owner
 		turn.extra_turn = true

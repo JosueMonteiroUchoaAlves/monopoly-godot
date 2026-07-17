@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ColonelData" format=3 uid="uid://cije2u763ytb2"]
+
+[ext_resource type="Script" uid="uid://crk7psrfj38j7" path="res://resources/titles/colonel/colonel_data.gd" id="1_748vx"]
+[ext_resource type="Texture2D" uid="uid://c3jhbvn6l8icp" path="res://resources/titles/colonel/colonel-sprite.png" id="1_jnybo"]
+[ext_resource type="Script" uid="uid://du7gw36txswwd" path="res://resources/titles/colonel/colonel_context.gd" id="2_4r7nc"]
+
+[resource]
+script = ExtResource("1_748vx")
+_name = "Coronel"
+_description = "1/3 de chance de prender um jogador que pisar em suas casas"
+_store_price = 2
+_card_texture = ExtResource("1_jnybo")
+context_type = ExtResource("2_4r7nc")
+type = 1
+metadata/_custom_type_script = "uid://crk7psrfj38j7"

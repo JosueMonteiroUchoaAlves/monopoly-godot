@@ -7,10 +7,10 @@ func _init():
 func on_buy_property_event(
 	event: BuyPropertyContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if event.player == data.owner.player:
+	super(event, turn, context)
+	if event.player == context.owner.player:
 		event.modded_value = 1.25 * event.modded_value
-		turn.nextController = data.owner
+		turn.nextController = context.owner
 		turn.extra_turn = true

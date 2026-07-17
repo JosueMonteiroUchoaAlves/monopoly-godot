@@ -7,28 +7,28 @@ func _init():
 func on_buy_property_event(
 	event: BuyPropertyContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if event.property.type == ItemType.arts and event.buyer == data.owner.player:
-		data.is_free = true
+	super(event, turn, context)
+	if event.property.type == ItemType.arts and event.buyer == context.owner.player:
+		context.is_free = true
 
 func on_land_on_event(
 	event: LandOnContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if event.property.type == ItemType.arts and event.player == data.owner.player:
-		data.is_free = true
+	super(event, turn, context)
+	if event.property.type == ItemType.arts and event.player == context.owner.player:
+		context.is_free = true
 		
 func on_rent_event(
 	event: RentContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if data.is_free and (not event.is_cancelled) and event.payer == data.owner.player:
+	super(event, turn, context)
+	if context.is_free and (not event.is_cancelled) and event.payer == context.owner.player:
 		event.modded_value = 0
 		event.is_cancelled = true
-		data.is_free = false
+		context.is_free = false

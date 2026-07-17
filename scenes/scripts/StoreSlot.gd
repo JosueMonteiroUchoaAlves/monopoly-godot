@@ -8,7 +8,6 @@ var hovering: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(mainItem)
 	card.texture = mainItem._card_texture
 
 func is_mouse_over_card() -> bool:

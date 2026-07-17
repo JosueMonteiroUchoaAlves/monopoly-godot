@@ -18,8 +18,6 @@ func move_player(new_position: int, coordinates: Vector2) -> void:
 	#-- Visualmente
 	await view.move(coordinates)
 
-@abstract
-func execute_turn(_property: Property)
 
 func file_for_bankruptcy():
 	is_bankrupt = true
@@ -29,4 +27,4 @@ func file_for_bankruptcy():
 func skip_turn(reason: String) -> void:
 	print("%s teve seu turno eskipado por %s\n"%[player._name, reason])
 	await Engine.get_main_loop().create_timer(1.0).timeout
-	turn_finished.emit(self)
+	turn_finished.emit()

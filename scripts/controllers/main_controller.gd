@@ -14,13 +14,19 @@ func _init(player_t: Player, view_t: PlayerNode, UIcontrol:Control):
 
 var rng = RandomNumberGenerator.new()
 
-func execute_turn(_property: Property):
+func execute_turn(_property: LogicProperty):
 	print("%s esta pensando..."%player._name)
 	
 	var choice: String = await _UIcontrol.player_choose
 	if choice == "buy":
 		print("%s resolveu comprar a propriedade"%player._name)
-		_property.buy_property(player)
+		var buy_property = BuyPropertyContext.new(
+			player,
+			weakref(_property),
+			_property.data._price
+		)
+		# TurnContext.new() é uma gambiarra. Idealmente, essa informação seria do Round
+		_property.data.buy_property(buy_property, TurnContext.new(), _property.context)
 		print("agora ele tem %d no bolso"%player.get_money())
 	else:
 		if choice == "pass":

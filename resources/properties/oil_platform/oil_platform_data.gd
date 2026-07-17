@@ -4,12 +4,13 @@ class_name OilPlatformData extends PropertyData
 
 func _init():
 	type = ItemType.exploration
-	context_type = OilPlatformContext
+	context_type = load("res://resources/properties/oil_platform/oil_platform_context.gd")
 	
-func charge_rent(event: RentContext, turn: TurnContext, data: PropertyContext):
-	check_context_format(data)
-	if not data.is_exploded:
-		super(event, turn, data)
+func charge_rent(event: RentContext, turn: TurnContext, context: PropertyContext):
+	check_context_format(context)
+	if not context.is_exploded:
+		super(event, turn, context)
 		var roll = randf()
 		if roll < chance:
-			data.is_exploded = true
+			context.is_exploded = true
+			EventBus.round_log.emit("A plataforma de petróleo explodiu :/")

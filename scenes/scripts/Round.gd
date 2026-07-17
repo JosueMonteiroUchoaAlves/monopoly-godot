@@ -6,7 +6,9 @@ class_name Round extends Node2D
 var main_player: MainController
 var bot_players: Array[BotController] = []
 var players: Array[Controller] = [] # Controllers
-var tiles: Array[Tile] # PropertyTile, PrisionTile, StartingTile, LuckOrMischanceTile
+var tiles: Array[LogicTile] = [] # PropertyTile, PrisionTile, StartingTile, LuckOrMischanceTile
+var titles: Array[LogicTitle] = []
+var properties: Array[LogicProperty] = []
 @export var inventory: Inventory
 var player_nodes: Array[PlayerNode]
 
@@ -33,21 +35,21 @@ func round_setup() -> void:
 	var corner_tiles: Array[LogicTile] = []
 	for i in range(4):
 		var data = inventory.pick_corner_tile()
-		regular_tiles.append(LogicTile.new(
+		corner_tiles.append(LogicTile.new(
 			data,
 			data.context_type.new()
 		))
 		
-	var property_tile_count = regular_tiles.filter(func(tile): return is_instance_of(tile.data, PropertyTileData)).size()
-	var properties: Array[LogicProperty] = []
-	for i in range(property_tile_count):
+	var property_tiles: Array[LogicTile] = regular_tiles.filter(func(tile): return is_instance_of(tile.data, PropertyTileData))
+	for tile in property_tiles:
 		var data = inventory.pick_property()
-		properties.append(LogicTile.new(
+		var logic = LogicProperty.new(
 			data,
 			data.context_type.new()
-		))
-	
-	var tiles: Array[LogicTile] = []
+		)
+		properties.append(logic)
+		tile.context.property = weakref(logic)
+
 	var corners = 0
 	var regulars = 0
 	for i in range(Board.SIZE):
@@ -67,6 +69,12 @@ func round_setup() -> void:
 		else:
 			main_player = MainController.new(jogador, player_node, user_choice_UI)
 		
+	for title in inventory.titles:
+		titles.append(LogicTitle.new(
+			title,
+			title.context_type.new(main_player)
+		))
+		
 	players.assign(bot_players)
 	players.append(main_player)
 	
@@ -79,6 +87,8 @@ func round_setup() -> void:
 func start_round() -> void:
 	var rng = RandomNumberGenerator.new()
 	var current_turn_index: int = 0
+	
+	var turn_context = TurnContext.new()
 	
 	while main_player.player.get_money() >= 0 && main_player.player.get_money() < 1000 && players.size() > 1:
 		var current_player_controller: Controller = players[current_turn_index]
@@ -94,11 +104,11 @@ func start_round() -> void:
 		
 		var initial_position: int = current_player.get_player_position()
 		
-		var squares = rng.randi_range(0, 4) # squares = casas
+		var squares = rng.randi_range(1, 6) # squares = casas
 		var new_position: int = (initial_position+squares) % Board.SIZE
 		
 		if initial_position != new_position:
-			var intermediary_position:int = initial_position+1 # ja comeca indo para a proxima, claro
+			var intermediary_position:int = (initial_position + 1) % Board.SIZE # ja comeca indo para a proxima, claro
 			var safe_global_coords: Vector2
 			var coordinates: Vector2
 			while (current_player.get_player_position() != new_position):
@@ -106,17 +116,42 @@ func start_round() -> void:
 				coordinates = board.to_local(safe_global_coords)
 				# move para a nova casa
 				await current_player_controller.move_player(intermediary_position, coordinates)
-				intermediary_position += 1
+				intermediary_position = (intermediary_position + 1) % Board.SIZE
 				
 		round_log("Ele se moveu %d casas"%squares)
 		# pra dar tempo de conferir se moveu certinho
 		await get_tree().create_timer(2.0).timeout
 		
 		round_log("ele deve comecar a pensar a qualquer momento...")
-		if initial_position != new_position && false: ## tirar o false para poder jogar
+		if initial_position != new_position:
 			# Board Node 2D -> Tile logic core -> pergunta pra Controller:
 			# Como que esse player que esta linkado a voce quer agir?
-			board.execute_turn(new_position, current_player_controller)
+			var new_tile = board.tiles[new_position].logic_core
+			var land_on = LandOnContext.new(
+				current_player,
+				current_player_controller,
+				weakref(new_tile),
+				squares,
+				false
+			)
+			print("Proximo do LandOn")
+			parse_land_on_event(land_on, turn_context)
+			new_tile.data.land_on(land_on, turn_context, new_tile.context)
+			print("Passou do LandOn")
+			
+			if land_on.should_charge:
+				var property = new_tile.context.property.get_ref()
+				var charge_rent = RentContext.new(
+					land_on.player,
+					property.context._owner,
+					property.data.rent,
+					property.data.rent,
+					land_on.controller
+				)
+				print("Proximo do ChargeRent")
+				parse_charge_rent_event(charge_rent, turn_context)
+				property.data.charge_rent(charge_rent, turn_context, property.context)
+				print("Passou do ChargeRent")
 		else: # nao saiu do lugar
 			current_player_controller.skip_turn("nao ter se movido")
 			
@@ -153,6 +188,20 @@ func on_player_bankrupt(dead_controller: Controller) -> void:
 	board.expropriation_of_assets(dead_controller.player)
 				
 	dead_controller.view.visible = false
+
+func parse_land_on_event(context: LandOnContext, turnContext: TurnContext):
+	for title in titles:
+		title.data.on_land_on_event(context, turnContext, title.context)
+
+	for property in properties:
+		property.data.on_land_on_event(context, turnContext, property.context)
+
+func parse_charge_rent_event(context: RentContext, turnContext: TurnContext):
+	for title in titles:
+		title.data.on_rent_event(context, turnContext, title.context)
+	
+	for property in properties:
+		property.data.on_rent_event(context, turnContext, property.context)
 
 func round_log(text: String):
 	EventBus.round_log.emit(text)

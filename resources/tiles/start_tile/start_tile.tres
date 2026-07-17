@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StartTileData" format=3 uid="uid://jb0sp11g3g27"]
+
+[ext_resource type="Script" uid="uid://j4k3uy31aeb6" path="res://resources/tiles/start_tile/start_tile_data.gd" id="1_e7c5m"]
+[ext_resource type="Texture2D" uid="uid://b50ir6ax7g5u1" path="res://resources/tiles/start_tile/start_tile_sprite.png" id="1_yq84w"]
+[ext_resource type="Script" uid="uid://db1d31a6ay3u6" path="res://resources/tiles/start_tile/start_tile_context.gd" id="2_cw361"]
+
+[resource]
+script = ExtResource("1_e7c5m")
+board_texture = ExtResource("1_yq84w")
+_name = "Cara Inicial"
+_description = "Ao passar por cima, receba 50"
+_store_price = 2
+_card_texture = ExtResource("1_yq84w")
+_needs_sub = true
+context_type = ExtResource("2_cw361")
+metadata/_custom_type_script = "uid://j4k3uy31aeb6"

@@ -3,11 +3,6 @@
 [ext_resource type="Script" uid="uid://cy2qs3cy8pfvv" path="res://scenes/scripts/Board.gd" id="1_66b1s"]
 [ext_resource type="PackedScene" uid="uid://b2isg06fnmy2a" path="res://scenes/Tile.tscn" id="2_w6jgk"]
 [ext_resource type="PackedScene" uid="uid://bhaxklaynv8re" path="res://scenes/Player.tscn" id="3_xdl3i"]
-[ext_resource type="Texture2D" uid="uid://cam6fufpwluh3" path="res://sprites/tiles/inicio.png" id="4_hljw5"]
-[ext_resource type="Texture2D" uid="uid://fa3h4jd4lxy4" path="res://sprites/tiles/cadeia.png" id="4_w6jgk"]
-[ext_resource type="Texture2D" uid="uid://ch37oa5j6vadb" path="res://sprites/tiles/coorner-boost.png" id="5_wxh2q"]
-[ext_resource type="Texture2D" uid="uid://euj8p1f44hso" path="res://sprites/sprite-tile.png" id="5_xdl3i"]
-[ext_resource type="Texture2D" uid="uid://cprwh5leir7et" path="res://sprites/tiles/virada-de-chave.png" id="8_w8n1y"]
 
 [node name="Board" type="Node2D" unique_id=1499039582]
 position = Vector2(576, 324)
@@ -29,7 +24,6 @@ is_enemy = true
 
 [node name="Tile1" parent="." unique_id=2050578409 instance=ExtResource("2_w6jgk")]
 position = Vector2(-208, -214)
-textura_personalizada = ExtResource("4_hljw5")
 is_corner = true
 
 [node name="Tile2" parent="." unique_id=1919379070 instance=ExtResource("2_w6jgk")]
@@ -46,7 +40,6 @@ position = Vector2(108, -214)
 
 [node name="Tile6" parent="." unique_id=1257356489 instance=ExtResource("2_w6jgk")]
 position = Vector2(208, -214)
-textura_personalizada = ExtResource("5_wxh2q")
 is_corner = true
 
 [node name="Tile7" parent="." unique_id=381312033 instance=ExtResource("2_w6jgk")]
@@ -64,11 +57,9 @@ rotation = 1.5707964
 [node name="Tile10" parent="." unique_id=893537449 instance=ExtResource("2_w6jgk")]
 position = Vector2(208, 102)
 rotation = 1.5707964
-textura_personalizada = ExtResource("5_xdl3i")
 
 [node name="Tile11" parent="." unique_id=249677084 instance=ExtResource("2_w6jgk")]
 position = Vector2(208, 202)
-textura_personalizada = ExtResource("4_w6jgk")
 is_corner = true
 
 [node name="Tile12" parent="." unique_id=2037284452 instance=ExtResource("2_w6jgk")]
@@ -85,7 +76,6 @@ position = Vector2(-108, 202)
 
 [node name="Tile16" parent="." unique_id=1772903562 instance=ExtResource("2_w6jgk")]
 position = Vector2(-208, 202)
-textura_personalizada = ExtResource("8_w8n1y")
 is_corner = true
 
 [node name="Tile17" parent="." unique_id=1947630365 instance=ExtResource("2_w6jgk")]

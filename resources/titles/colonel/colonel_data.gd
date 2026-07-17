@@ -7,10 +7,13 @@ func _init():
 func on_land_on_event(
 	event: LandOnContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if event.player != data.owner.player:
+	super(event, turn, context)
+	if not context.owner:
+		return
+	
+	if event.player != context.owner.player:
 		var roll = randi_range(0, 2)
 		if roll == 0:
 			event.should_arrest = true

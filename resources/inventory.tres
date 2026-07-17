@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://ba5k6nyw4p3an" path="res://scripts/inventory.gd" id="1_j6v23"]
 [ext_resource type="Script" uid="uid://cnii0j8eoexxr" path="res://scripts/abstracts/resources/property_data.gd" id="1_q3p8o"]
+[ext_resource type="Resource" uid="uid://dhg2b6wwtymuv" path="res://resources/properties/oil_platform/oil_platform.tres" id="2_8edio"]
 [ext_resource type="Script" uid="uid://db8sdaisyvwxa" path="res://scripts/abstracts/resources/tile_data.gd" id="3_xov08"]
 [ext_resource type="Script" uid="uid://b86g2aj146yyw" path="res://scripts/abstracts/resources/title_data.gd" id="4_ey7vp"]
+[ext_resource type="Resource" uid="uid://l6jj55coavww" path="res://resources/tiles/property_tile/property_tile.tres" id="4_xqdwh"]
+[ext_resource type="Resource" uid="uid://jb0sp11g3g27" path="res://resources/tiles/start_tile/start_tile.tres" id="7_3bln2"]
+[ext_resource type="Resource" uid="uid://cije2u763ytb2" path="res://resources/titles/colonel/colonel.tres" id="8_3bln2"]
 
 [resource]
 script = ExtResource("1_j6v23")
+tiles = Array[ExtResource("3_xov08")]([ExtResource("4_xqdwh"), ExtResource("7_3bln2")])
+titles = Array[ExtResource("4_ey7vp")]([ExtResource("8_3bln2")])
+properties = Array[ExtResource("1_q3p8o")]([ExtResource("2_8edio")])

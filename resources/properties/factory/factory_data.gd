@@ -6,14 +6,14 @@ func _init():
 	type = ItemType.industry
 	context_type = FactoryContext
 	
-func charge_rent(event: RentContext, turn: TurnContext, data: PropertyContext):
-	super(event, turn, data)
+func charge_rent(event: RentContext, turn: TurnContext, context: PropertyContext):
+	super(event, turn, context)
 
 func on_turn_end_event(
 	event: TurnEndContext, 
 	turn: TurnContext, 
-	data: PropertyContext
+	context: PropertyContext
 ):
-	super(event, turn, data)
-	if event.player == data._owner:
-		data._owner.gain_or_spend_money(passive_income)
+	super(event, turn, context)
+	if event.player == context._owner:
+		context._owner.gain_or_spend_money(passive_income)

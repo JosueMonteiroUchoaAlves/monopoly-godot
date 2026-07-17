@@ -1,5 +1,5 @@
 class_name LogicTitle extends LogicalItem
 
-func _init(data: TitleData, context: TitleContext):
-	data = data
-	context = context
+func _init(p_data: TitleData, p_context: TitleContext):
+	data = p_data
+	context = p_context

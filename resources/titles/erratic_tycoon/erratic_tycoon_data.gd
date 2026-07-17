@@ -6,8 +6,8 @@ func _init():
 func on_step_over_event(
 	event: StepOverContext, 
 	turn: TurnContext, 
-	data: TitleContext
+	context: TitleContext
 ):
-	super(event, turn, data)
-	if event.player == data.owner.player:
-		event.tile.land_on(data.owner)
+	super(event, turn, context)
+	if event.player == context.owner.player:
+		event.tile.land_on(context.owner)

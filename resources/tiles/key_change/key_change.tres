@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="KeyChangeData" format=3 uid="uid://cchb0vhia8wci"]
+
+[ext_resource type="Script" uid="uid://bqoue1f6ub7an" path="res://resources/tiles/key_change/key_change_data.gd" id="1_8fw8y"]
+
+[resource]
+script = ExtResource("1_8fw8y")
+_name = "Mudanca de Chave"
+metadata/_custom_type_script = "uid://bqoue1f6ub7an"

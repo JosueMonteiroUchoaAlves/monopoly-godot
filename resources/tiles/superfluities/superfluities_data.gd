@@ -1,8 +1,8 @@
-class_name TemplateTileData extends GenericTileData
+class_name SuperfluitieseData extends GenericTileData
 
 func _init():
-	context_type = TemplateTileContext
-	type = ItemType.neutral
+	context_type = SuperfluitiesContext
+	type = ItemType.arts
 	
-func land_on(event: LandOnContext, turn: TurnContext, data: TileContext):
-	super(event, turn, data)
+func land_on(event: LandOnContext, turn: TurnContext, context: TileContext):
+	pass

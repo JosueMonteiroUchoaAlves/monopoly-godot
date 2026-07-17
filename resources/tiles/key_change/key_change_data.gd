@@ -6,10 +6,9 @@ func _init():
 	context_type = KeyChangeContext
 	type = ItemType.neutral
 	
-func land_on(event: LandOnContext, turn: TurnContext, data: TileContext):
-	super(event, turn, data)
-	if not data.is_spent:
+func land_on(event: LandOnContext, turn: TurnContext, context: TileContext):
+	if not context.is_spent:
 		event.player.gain_or_spend_money(extra_money)
 		turn.nextController = event.controller
 		turn.extra_turn = true
-		data.is_spent = true
+		context.is_spent = true
