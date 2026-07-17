@@ -7,7 +7,7 @@ var board_core: Board
 func _ready() -> void:
 	_tiles = get_children_tiles()
 
-func setup(tiles: Array[Tile], players: Array[Controller], user_choice_UI_T: Control) -> void:
+func setup(tiles: Array[LogicTile], players: Array[Controller], user_choice_UI_T: Control) -> void:
 	_user_choice_UI = user_choice_UI_T
 	board_core = Board.new(tiles, players)
 	
@@ -38,9 +38,9 @@ func execute_turn(tile_position: int, player: Controller):
 
 func expropriation_of_assets(bankruptPlayer: Player):
 	for tile in _tiles:
-		if tile.logic_core is PropertyTile:
-			if tile.logic_core._property.get_property_owner() == bankruptPlayer:
-				tile.logic_core._property._owner = null
+		if tile.logic_core.data is PropertyTileData:
+			if tile.logic_core.context.property.context._owner == bankruptPlayer:
+				tile.logic_core.context.property.context._owner = null
 
 func get_safe_drop_coordinate(target_tile_index: int) -> Vector2:
 	var base_coordinate: Vector2 = _tiles[target_tile_index].marker.global_position

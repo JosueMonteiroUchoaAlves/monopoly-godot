@@ -1,3 +1,5 @@
-class_name Title extends Node
+class_name LogicTitle extends LogicalItem
 
-@export var base_data: TitleData
+func _init(data: TitleData, context: TitleContext):
+	data = data
+	context = context

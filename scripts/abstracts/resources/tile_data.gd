@@ -1,6 +1,7 @@
 class_name GenericTileData extends ItemData
 
 @export var board_texture: Texture2D
+@export var is_corner: bool = false
 
 func _init() -> void:
 	_needs_sub = true

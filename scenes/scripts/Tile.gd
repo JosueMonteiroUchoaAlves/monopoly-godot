@@ -6,7 +6,7 @@ class_name TileNode extends Node2D
 
 @onready var marker : Marker2D = $Marker
 @export var is_corner: bool
-var logic_core: Tile
+var logic_core: LogicTile
 
 # DESCOMENTAR AS LINHAS SE NECESSARIO VISUALIZAR TEXTURA SEM RODAR O CODIGO
 

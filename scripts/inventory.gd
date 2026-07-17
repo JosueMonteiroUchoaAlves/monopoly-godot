@@ -5,8 +5,13 @@ class_name Inventory extends Resource
 @export var properties: Array[PropertyData] = []
 @export var tokens: int = 3
 
-func pick_tile() -> GenericTileData:
-	return tiles.pick_random()
+func pick_regular_tile() -> GenericTileData:
+	var regular_tiles = tiles.filter(func(tile): return not tile.is_corner)
+	return regular_tiles.pick_random()
+	
+func pick_corner_tile() -> GenericTileData:
+	var corner_tiles = tiles.filter(func(tile): return tile.is_corner)
+	return corner_tiles.pick_random()
 	
 func pick_title() -> TitleData:
 	return titles.pick_random()

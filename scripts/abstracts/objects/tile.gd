@@ -1,7 +1,5 @@
-class_name Tile extends Node
+class_name LogicTile extends LogicalItem
 
-@export var _property: Property
-@export var base_data: GenericTileData
-
-func _init(property: Property = null):
-	_property = property
+func _init(data: GenericTileData, context: TileContext):
+	data = data
+	context = context

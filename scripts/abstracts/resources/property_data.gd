@@ -2,7 +2,6 @@ class_name PropertyData extends ItemData
 
 @export var _price: int
 @export var rent: int = 25
-@export var is_corner: bool = false
 
 func _init() -> void:
 	_needs_sub = true

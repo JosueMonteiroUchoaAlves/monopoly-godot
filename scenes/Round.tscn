@@ -7,6 +7,7 @@
 
 [node name="Round" type="Node2D" unique_id=27026996]
 script = ExtResource("1_a4rw8")
+inventory = ExtResource("2_h7of1")
 
 [node name="Control" parent="." unique_id=841204616 instance=ExtResource("1_oqe1w")]
 anchors_preset = 7

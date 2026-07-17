@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Inventory" format=3 uid="uid://b33783hqq6n11"]
 
-[ext_resource type="Script" uid="uid://bwrtstao23gh5" path="res://scripts/inventory.gd" id="1_j6v23"]
+[ext_resource type="Script" uid="uid://ba5k6nyw4p3an" path="res://scripts/inventory.gd" id="1_j6v23"]
 [ext_resource type="Script" uid="uid://cnii0j8eoexxr" path="res://scripts/abstracts/resources/property_data.gd" id="1_q3p8o"]
 [ext_resource type="Script" uid="uid://db8sdaisyvwxa" path="res://scripts/abstracts/resources/tile_data.gd" id="3_xov08"]
 [ext_resource type="Script" uid="uid://b86g2aj146yyw" path="res://scripts/abstracts/resources/title_data.gd" id="4_ey7vp"]

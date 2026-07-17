@@ -7,6 +7,7 @@ var main_player: MainController
 var bot_players: Array[BotController] = []
 var players: Array[Controller] = [] # Controllers
 var tiles: Array[Tile] # PropertyTile, PrisionTile, StartingTile, LuckOrMischanceTile
+@export var inventory: Inventory
 var player_nodes: Array[PlayerNode]
 
 # Called when the node enters the scene tree for the first time.
@@ -21,30 +22,41 @@ func round_setup() -> void:
 	# TODO: adicionar a Tile inicial
 	var jogador = Player.new("Jogador", 200, 0)
 	
-	var properties = [
-		"Vila Sésamo", 
-		"Gotham City", 
-		"Hometown (Deltarune)",
-		"Bora Bill Eventos",
-		"Horizonte Solar",
-		"Santo Berço",
-		"Coroa de Espinhos",
-		"Crazy Noisy Bizarre Town",
-		"O Escritório (do ingles The Office)",
-		"Hangar 18",
-		"Fórum do StackOverflow",
-		"Bomba de Etanol",
-		"Rua das laranjeiras",
-		"Rua dos limoes",
-		"Rua dos macacos",
-		"Rua dos quiabos",
-	]
+	var regular_tiles: Array[LogicTile] = []
+	for i in range(16):
+		var data = inventory.pick_regular_tile()
+		regular_tiles.append(LogicTile.new(
+			data,
+			data.context_type.new()
+		))
 	
-	# 4 porque sao as quinas, que nunca vao ser housing property
-	for i in range(Board.SIZE-4):
-		var property = HousingProperty.new(properties[i], 60, 60)
-		var tile = PropertyTile.new(property)
-		tiles.append(tile)
+	var corner_tiles: Array[LogicTile] = []
+	for i in range(4):
+		var data = inventory.pick_corner_tile()
+		regular_tiles.append(LogicTile.new(
+			data,
+			data.context_type.new()
+		))
+		
+	var property_tile_count = regular_tiles.filter(func(tile): return is_instance_of(tile.data, PropertyTileData)).size()
+	var properties: Array[LogicProperty] = []
+	for i in range(property_tile_count):
+		var data = inventory.pick_property()
+		properties.append(LogicTile.new(
+			data,
+			data.context_type.new()
+		))
+	
+	var tiles: Array[LogicTile] = []
+	var corners = 0
+	var regulars = 0
+	for i in range(Board.SIZE):
+		if i % 5 == 0:
+			tiles.append(corner_tiles[corners])
+			corners += 1
+		else:
+			tiles.append(regular_tiles[regulars])
+			regulars += 1
 	
 	player_nodes = board.get_players()
 	for player_node in player_nodes:
